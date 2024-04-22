@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+  <div>
+    <h1>Credit underwriting for unsecured line of credit</h1>
+    <div class="mermaid" id="mermaidHolder"></div>
+  </div>
+  <div id="content">
+    <h1>Credit underwriting for unsecured line of credit Workflow</h1>
+    <table>
+      <tr>
+        <th>Steps ID</th>
+        <th>Action</th>
+        <th>Source Actors</th>
+        <th>Target Actor</th>
+        <th>Action Details</th>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td>Opening application</td>
+        <td>Loan Manager</td>
+        <td>Lending Platform</td>
+        <td>Opening the Underwriting screen and load the application intended to work with.</td>
+        <td>Application number</td>
+        <td>Application is opened</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Conducting Preliminary eligibility checks</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Initial eligibility assessments are performed based on criteria such as the completeness and accuracy of the application, verification of the applicant's identity, and verification of income and employment.</td>
+        <td>Application</td>
+        <td>Eligibility assessment report/status</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Assessing Credit worthiness</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Review the information from the credit bureau report</td>
+        <td>Credit report</td>
+        <td>Credit worthiness summary</td>
+      </tr>
+      <tr>
+        <td>03.1</td>
+        <td>Acquiring Credit Reports</td>
+        <td>AI Engine</td>
+        <td>Credit Bureau</td>
+        <td>Obtain the credit reports from the identified credit bureaus</td>
+        <td>Applicant details</td>
+        <td>Credit reports</td>
+      </tr>
+      <tr>
+        <td>03.2</td>
+        <td>Reviewing credit history</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Account details and payment history are examined.</td>
+        <td>Types of Credit account, open/close dates, credit limits, current balances, frequency of late payments</td>
+        <td>Historical credit behaviour</td>
+      </tr>
+      <tr>
+        <td>03.3</td>
+        <td>Analyzing credit utilization</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Analyze credit utilization ratio (ratio of current balances to credit limits).</td>
+        <td>Credit Utilization Ratio</td>
+        <td>Credit Stress Level Credit Utilization Trends</td>
+      </tr>
+      <tr>
+        <td>03.4</td>
+        <td>Examining inquiries</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Note the number of recent hard inquiries.</td>
+        <td>No.of hard inquiries</td>
+        <td>Financial distress level</td>
+      </tr>
+      <tr>
+        <td>03.5</td>
+        <td>Analyzing the credit score</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Evaluate the credit score provided in the report.</td>
+        <td>Credit Score</td>
+        <td>Credit risk level Borrower profile segmentation</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Calculating Debt-to-Income ratio</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Calculate the monthly debt-to-income ratio.</td>
+        <td>Bank Statements, Tax Returns</td>
+        <td>Monthly Debt-to-Income Ratio</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>Pricing the application</td>
+        <td>AI Engine</td>
+        <td>AI Engine</td>
+        <td>Pricing of the application after thorough market analysis and adopting risk-based pricing model.</td>
+        <td>Reports from the previous steps</td>
+        <td>Interest rates, fees, and other terms of the loan</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>Specifying stipulations</td>
+        <td>AI Engine</td>
+        <td>Loan Manager</td>
+        <td>Clearly define any conditions or stipulations that must be met.</td>
+        <td>Reports from the previous steps</td>
+        <td>Report of the additional conditions or stipulations</td>
+      </tr>
+      <tr>
+        <td>07</td>
+        <td>Specifying itemizations</td>
+        <td>AI Engine</td>
+        <td>Loan Manager</td>
+        <td>Provide a detailed itemization of all associated fees, charges, and costs.</td>
+        <td>Reports from the previous steps</td>
+        <td>Itemization report</td>
+      </tr>
+      <tr>
+        <td>08</td>
+        <td>Decision Making</td>
+        <td>AI Engine</td>
+        <td>Loan Manager</td>
+        <td>Make a decision about the application.</td>
+        <td>Reports from the previous steps</td>
+        <td>Status of the application - Accept/Reject/Manual review</td>
+      </tr>
+    </table>
+    
+    
+    
+    
+    
+  </div>
+
+  <script>
+    // Helper function to load scripts dynamically
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', (e) => reject(e));
+        document.body.appendChild(script);
+      });
+    }
+
+    function initializeMermaid(markup) {
+      if (!window.mermaid) {
+        const mermaidScript = loadScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js'
+        );
+        mermaidScript.then(() => {
+          window.mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
+          renderMermaid(markup);
+        });
+      } else {
+        renderMermaid(markup);
+      }
+    }
+
+    function renderMermaid(markup) {
+      document.getElementById('mermaidHolder').innerHTML = markup;
+      window.mermaid.mermaidAPI.render('mermaidHolder', markup, () => {
+        // Callback function after rendering
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mermaidMarkup =`
+sequenceDiagram
+    participant LM as "Loan Manager"
+    participant LPlat as "Lending Platform"
+    participant AIE as "AI Engine"
+    participant CB as "Credit Bureau"
+    LM->>LPlat: Opens Underwriting screen & loads application
+    activate LPlat
+    LPlat-->>LM: Application loaded
+    deactivate LPlat
+    LM->>AIE: Conducts Preliminary eligibility checks
+    activate AIE
+    AIE-->>AIE: Assessing Credit worthiness
+    AIE->>CB: Acquires Credit Reports
+    CB-->>AIE: Credit reports sent
+    AIE->>AIE: Reviews credit history
+    AIE->>AIE: Analyzes credit utilization
+    AIE->>AIE: Examines inquiries
+    AIE->>AIE: Analyses credit score
+    AIE->>AIE: Calculates Debt-to-Income ratio
+    AIE->>AIE: Prices the application
+    AIE-->>LM: Specifies stipulations & itemizations
+    AIE->>LM: Decision Making
+    AIE-->>LM: Application decision Accept/Reject
+    AIE-->>LM: Manual Review (If required)
+    deactivate AIE
+ 
+
+
+`
+
+      initializeMermaid(mermaidMarkup);
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+    }
+  
+    table th,
+    table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+  
+    table th {
+      background-color: #f4f4f4;
+      text-align: left;
+    }
+  
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+  
+</body>
+</html>

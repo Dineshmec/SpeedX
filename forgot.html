@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot</title>
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="shortcut icon" href="./assets/images/Conceptvines Assets/32 X 32.png" type="image/x-icon" />
+</head>
+
+<body>
+    <main class="forgotScreenOne otpScreen" id="otpScreen">
+        <div class="contentPart" data-contentEle>
+            <div class="otpPart forgotPart">
+                <div class="otpInputSection">
+                    <form class="forgotPwdFormPart d-flex" data-forgot-section>
+                        <div class="headingPart">
+                            <h3>Forgot Password?</h3>
+                            <p>No Worries, we'll send you reset instructions</p>
+                        </div>
+                        <div class="inputSection">
+                            <div class="inputAndErrPart">
+                                <input class="input" type="email" id="forgotEmail" placeholder="Email Address" />
+                                <span class="error_show"></span>
+                            </div>
+                        </div>
+                        <button onclick="onForgetSubmitHandle(event)" class="primaryBtn btnRound">Continue</button>
+                        <a class="backtoLogin" href="login.html">Back to Login</a>
+                    </form>
+                    <form class="checkYourEmailPart d-none" data-check-section>
+                        <div class="headingPart">
+                            <h3>Check your email</h3>
+                            <p>We sent a password reset link to</p>
+                            <p class="checkEmail" data-show-email>test@gmail.com</p>
+                        </div>
+                    </form>
+                    <form class="setNewPwdFormPart d-none" data-setPwd-section>
+                        <div class="headingPart">
+                            <h3>Set new Password</h3>
+                            <p>
+                                Your new password must be different to previously used
+                                passoword has Used in
+                            </p>
+                            <p class="checkEmail" data-show-email>test@gmail.com</p>
+                        </div>
+                        <div class="inputSection">
+                            <div class="inputAndErrPart passwordInput">
+                                <input class="input" type="password" id="newPassword" placeholder="Password" />
+                                <span class="error_show"></span>
+                                <button type="button" id="newhideShowBtn" onclick="newPwdToggle()">
+                                    <img src="./assets/images/login/eye.webp" alt="eyes" />
+                                </button>
+                            </div>
+                            <div class="inputAndErrPart passwordInput">
+                                <input class="input" type="password" id="confirmPassword"
+                                    placeholder="Confirm New Password" />
+                                <span class="error_show"></span>
+                                <button type="button" id="confirmhideShowBtn" onclick="confirmPwdToggle()">
+                                    <img src="./assets/images/login/eye.webp" alt="eyes" />
+                                </button>
+                            </div>
+
+                            <button class="primaryBtn btnRound" onclick="onConfirmSubmitHandle(event)">Reset
+                                Password</button>
+
+                        </div>
+                </div>
+                </form>
+                <div class="passwordSuccessPart d-none" data-success-section>
+                    <img src="./assets/images/login/Tick.webp" alt="tick">
+                    <h3>Password Reset</h3>
+                    <p>Your password has been successfully reset.</p>
+
+                    <button onclick="location.href = 'login.html';" type="button"
+                        class="primaryBtn btnRound">Continue</button>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="handImgSection" data-handImgEle>
+            <img class="otpBottomImg" src="./assets/images/signup/otpbg2.webp" alt="otpbottomimg" />
+            <div class="optionPart d-none" data-controls>
+                <button class="editEmail" id="editEmail">
+                    <img src="./assets/images/signup/edit.png" alt="edit" />
+                    <p>Edit Email Address</p>
+                </button>
+                <div class="timerPart">
+                    <p id="timer"></p>
+                    <button class="sendnew" onclick="startResendTimer()" id="resendBtn">
+                        <img src="./assets/images/signup/refresh.png" alt="refresh" />
+                        <p>Resend Link</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footerLogoPart">
+            <a href="login.html">
+                <img class="logoImg" src="./assets/images/login/logo.webp" alt="logo" />
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // select elements
+        const forgotSection = document.querySelector("[data-forgot-section]")
+        const checkSection = document.querySelector("[data-check-section]")
+        const setPwdSection = document.querySelector("[data-setPwd-section]")
+        const successSection = document.querySelector("[data-success-section]")
+        const controlsPart = document.querySelector("[data-controls]")
+        const editEmail = document.querySelector("#editEmail")
+        // forgot Screen input element
+        const forgotEmail = document.getElementById("forgotEmail");
+        // password Screen input element
+        const newPassword = document.getElementById("newPassword");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        function setErrorMessage(input, error_message) {
+            const inputControl = input.parentElement;
+            const errorDisplay = inputControl.querySelector(".error_show");
+
+            errorDisplay.innerText = error_message;
+            inputControl.classList.add("error");
+            inputControl.classList.remove("clear");
+        }
+
+        function setSuccessMessage(input) {
+            const inputControl = input.parentElement;
+            const successDisplay = inputControl.querySelector(".error_show");
+
+            successDisplay.innerText = " ";
+            inputControl.classList.add("clear");
+            inputControl.classList.remove("error");
+        }
+
+        function isValidEmail(email) {
+            if (
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+                    email
+                )
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function onForgetSubmitHandle(eve) {
+            eve.preventDefault();
+            forgotFormValidation();
+        }
+
+        function onConfirmSubmitHandle(eve) {
+            eve.preventDefault();
+            confirmFormValidation();
+        }
+
+        async function checkEmailExists(email) {
+        try {
+            // const forgotEmail_value = forgotEmail.value.trim();
+            const response = await fetch('http://127.0.0.1:5505/check_email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'email': email })
+            });
+            const data = await response.json();
+            return data.exists; // Assuming API returns { exists: true/false }
+        } catch (error) {
+            console.error('Error checking email:', error);
+            return false;
+            }
+        }
+
+        // async function update_password(eve) {
+            
+        //     const email = document.getElementById('email').value;
+        //     const newPassword = document.getElementById('newPassword').value;
+
+        //     fetch('http://127.0.0.1:5505/update_password', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({ 'email': email, 'new_password': newPassword })
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.message) {
+        //             alert(data.message);
+        //             window.location.href = 'login.html'; // Redirect on success
+        //         } else {
+        //             throw new Error(data.error || 'Unknown error');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         alert(error.message);
+        //     });
+        // }
+
+        async function forgotFormValidation() {
+            const forgotEmail_value = forgotEmail.value.trim();
+            if (forgotEmail_value === "") {
+                setErrorMessage(forgotEmail, "Please Enter a Email");
+            } else if (!isValidEmail(forgotEmail_value)) {
+                setErrorMessage(forgotEmail, "Please Enter a Valid Email");
+                return false;
+            } else {
+            const exists = await checkEmailExists(forgotEmail_value);
+            if (exists) {
+                setSuccessMessage(forgotEmail);
+                // Proceed with your logic after email exists check
+                forgotSection.classList.replace("d-flex", "d-none")
+                checkSection.classList.replace("d-none", "d-block")
+                controlsPart.classList.replace("d-none", "d-flex")
+                document.querySelector("body").style.cursor = "progress"
+                const showEmailEle = document.querySelectorAll("[data-show-email]");
+                showEmailEle.forEach((data) => {
+                    data.innerHTML = forgotEmail_value
+                })
+                setTimeout(() => {
+                    // console.log(checkSection.classList.contains("d-block"));
+                    if (checkSection.classList.contains("d-block")) {
+                        controlsPart.classList.replace("d-flex", "d-none")
+                        checkSection.classList.replace("d-block", "d-none")
+                        setPwdSection.classList.replace("d-none", "d-block")
+                        document.querySelector("body").style.cursor = "default"
+                    }
+                }, 3000)
+            } else {
+                setErrorMessage(forgotEmail, "Email does not exist.");
+            }
+        }
+
+            // if (forgotEmail_value) {
+            //     // forgotSection.classList.add("d-none")
+            //     forgotSection.classList.replace("d-flex", "d-none")
+            //     checkSection.classList.replace("d-none", "d-block")
+            //     controlsPart.classList.replace("d-none", "d-flex")
+            //     document.querySelector("body").style.cursor = "progress"
+            //     const showEmailEle = document.querySelectorAll("[data-show-email]");
+            //     showEmailEle.forEach((data) => {
+            //         data.innerHTML = forgotEmail_value
+            //     })
+            //     setTimeout(() => {
+            //         // console.log(checkSection.classList.contains("d-block"));
+            //         if (checkSection.classList.contains("d-block")) {
+            //             controlsPart.classList.replace("d-flex", "d-none")
+            //             checkSection.classList.replace("d-block", "d-none")
+            //             setPwdSection.classList.replace("d-none", "d-block")
+            //             document.querySelector("body").style.cursor = "default"
+            //         }
+            //     }, 3000)
+            // }
+        }
+        editEmail.addEventListener("click", () => {
+            // forgotSection.classList.add("d-flex")
+            forgotSection.classList.replace("d-none", "d-flex")
+            checkSection.classList.replace("d-block", "d-none")
+            controlsPart.classList.replace("d-flex", "d-none")
+            document.querySelector("body").style.cursor = "default"
+        })
+        // function confirmFormValidation() {
+            
+        //     // const forgotEmail_value = forgotEmail.value.trim();
+        //     const newPassword_value = newPassword.value.trim();
+        //     const confirmPassword_value = confirmPassword.value.trim();
+
+        //     if (newPassword_value == "") {
+        //         setErrorMessage(newPassword, "Please Enter a New Password");
+        //     } else {
+        //         setSuccessMessage(newPassword);
+        //     }
+
+        //     if (confirmPassword_value == "") {
+        //         setErrorMessage(confirmPassword, "Please Enter a Confirm Password");
+        //     }
+        //     else {
+        //         if (newPassword_value != confirmPassword_value) {
+        //             setErrorMessage(confirmPassword, "Password not matching");
+        //         } else {
+        //             setSuccessMessage(confirmPassword);
+        //         }
+        //     }
+            
+
+
+        //     if (newPassword_value && confirmPassword_value
+        //         && newPassword_value == confirmPassword_value) {
+        //         setPwdSection.classList.replace("d-block", "d-none")
+        //         successSection.classList.replace("d-none", "d-flex")
+        //     }
+        // }
+
+        async function confirmFormValidation() {
+            const newPassword_value = newPassword.value.trim();
+            const confirmPassword_value = confirmPassword.value.trim();
+
+            if (newPassword_value === "") {
+                setErrorMessage(newPassword, "Please enter a new password.");
+            } else {
+                setSuccessMessage(newPassword);
+            }
+
+            if (confirmPassword_value === "") {
+                setErrorMessage(confirmPassword, "Please enter a confirm password.");
+            } else if (newPassword_value !== confirmPassword_value) {
+                setErrorMessage(confirmPassword, "Passwords do not match.");
+            } else {
+                setSuccessMessage(confirmPassword);
+            }
+
+            if (newPassword_value && confirmPassword_value && newPassword_value === confirmPassword_value) {
+                // Assuming email is stored in a variable from a previous step
+                const email = forgotEmail.value.trim(); // or however you retrieve the stored email
+
+                const updateSuccess = await updatePassword(email, newPassword_value);
+                if (updateSuccess) {
+                    setPwdSection.classList.replace("d-block", "d-none");
+                    successSection.classList.replace("d-none", "d-flex");
+                }
+            }
+        }
+
+        async function updatePassword(email, new_password) {
+            try {
+                const response = await fetch('http://127.0.0.1:5505/update_password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 'email': email, 'new_password': new_password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    return true; // Password updated successfully
+                } else {
+                    console.error('Failed to update password:', data.error);
+                    setErrorMessage(confirmPassword, data.error); // Display specific error message if provided
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error updating password:', error);
+                setErrorMessage(confirmPassword, "Error updating password.");
+                return false;
+            }
+        }
+
+        function newPwdToggle() {
+            const newPasswordInput = document.getElementById("newPassword");
+
+            if (newPasswordInput.type === "password") {
+                newPasswordInput.type = "text";
+                newhideShowBtn.style.opacity = "0.5";
+            } else {
+                newPasswordInput.type = "password";
+                newhideShowBtn.style.opacity = "1";
+            }
+        }
+        function confirmPwdToggle() {
+            const confirmPasswordInput = document.getElementById("confirmPassword");
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                confirmhideShowBtn.style.opacity = "0.5";
+            } else {
+                confirmPasswordInput.type = "password";
+                confirmhideShowBtn.style.opacity = "1";
+            }
+        }
+
+        const handImgEle = document.querySelector("[data-handImgEle]");
+        const contentEle = document.querySelector("[data-contentEle]");
+
+        window.addEventListener('resize', function (event) {
+            const bottomPosition = contentEle.getBoundingClientRect().bottom;
+            const leftPosition = contentEle.getBoundingClientRect().left;
+            // console.log(bottomPosition);
+            handImgEle.style = `top:${bottomPosition}px;left:${leftPosition}px;transform: translateX(0%)`
+        }, true);
+        window.addEventListener('load', function (event) {
+            const bottomPosition = contentEle.getBoundingClientRect().bottom;
+            const leftPosition = contentEle.getBoundingClientRect().left;
+            // console.log(bottomPosition);
+            handImgEle.style = `top:${bottomPosition}px;left:${leftPosition}px; transform: translateX(0%)`
+        }, true);
+    </script>
+</body>
+
+</html>

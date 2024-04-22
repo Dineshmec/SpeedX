@@ -1,0 +1,8 @@
+var Appconfig ={
+     LOCALHOST:'http://127.0.0.1',
+     APP_PORT:5505,
+     INSURANCE_PORT:5000,
+     WEB_RUN_PORT:5500,
+     MODEL_PORT:5006,
+     SOLUTION_PORT:5005,
+};

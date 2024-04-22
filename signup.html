@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <script src="./assets/js/config.js"></script>
+  </head>
+  <body>
+    <main class="signUpScreen" id="signUpScreen">
+      <div class="contentPart">
+        <div class="headingPart">
+          <h2>Make Your Own!</h2>
+          <p>Join open intelligence platform</p>
+        </div>
+        <div class="signUpformPart">
+          <form id="signUpForm">
+            <div class="inputSection">
+              <div class="inputAndErrPart">
+                <input
+                  class="input"
+                  type="text"
+                  id="signUpUsername"
+                  placeholder="Email"
+                />
+                <span class="error_show"></span>
+              </div>
+              <!-- <div class="inputAndErrPart">
+                <input
+                  class="input"
+                  type="email"
+                  id="signUpUserEmail"
+                  placeholder="Work Email Address"
+                />
+                <span class="error_show"></span>
+              </div> -->
+              <div class="passwordInput inputAndErrPart">
+                <input
+                  class="input"
+                  type="password"
+                  id="signUpPasswordInput"
+                  placeholder="Password"
+                />
+                <span class="error_show"></span>
+                <button
+                  type="button"
+                  id="hideShowBtn"
+                  onclick="togglePasswordVisibility()"
+                >
+                  <img src="./assets/images/login/eye.webp" alt="eyes" />
+                </button>
+              </div>
+              <!-- <a class="navigate" href="otp.html"> -->
+              <!-- onclick="location.href = 'otp.html';" -->
+              <button
+                onclick="onSignInSumbitHandle(event)"
+                type="submit" 
+                class="primaryBtn"
+              >
+                Sign Up
+              </button>
+              <!-- </a> -->
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footerLogoPart">
+        <img class="logoImg" src="./assets/images/login/logo.webp" alt="logo" />
+        <img
+          class="cookImg"
+          src="./assets/images/signup/signupbg.webp"
+          alt="cook"
+        />
+      </div>
+    </main>
+    <main class="otpScreen" id="otpScreen">
+      <div class="contentPart">
+        <div class="headingPart">
+          <h2>A Message with a verification code has been sent to your</h2>
+          <h3 id="showEmailId">admin@company.com</h3>
+          <p>Enter the Code continue</p>
+        </div>
+        <div class="otpPart">
+          <div class="otpInputSection">
+            <img
+              class="otpTopImg"
+              src="./assets/images/signup/otpbg1.webp"
+              alt="otpTopimg"
+            />
+            <div class="otpInputPart">
+              <div>
+                <div class="otp-container">
+                  <input
+                    type="number"
+                    maxlength="1"
+                    class="otp-input"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    autofocus
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    class="otp-input"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    class="otp-input"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  />
+                  <input
+                    type="number"
+                    maxlength="1"
+                    class="otp-input"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  />
+                </div>
+              </div>
+              <label for="">enter the verification code</label>
+            </div>
+            <img
+              class="otpBottomImg"
+              src="./assets/images/signup/otpbg2.webp"
+              alt="otpbottomimg"
+            />
+            <div class="optionPart">
+              <button class="editEmail" id="editEmail">
+                <img src="./assets/images/signup/edit.png" alt="edit" />
+                <p>Edit Email address</p>
+              </button>
+              <div class="timerPart">
+                <p id="timer"></p>
+                <button
+                  class="sendnew"
+                  onclick="startResendTimer()"
+                  id="resendBtn"
+                >
+                  <img src="./assets/images/signup/refresh.png" alt="refresh" />
+                  <p>Send New Code</p>
+                </button>
+              </div>
+              <!-- <button id="resendBtn" onclick="startResendTimer()">
+                Resend OTP
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footerLogoPart">
+        <img class="logoImg" src="./assets/images/login/logo.webp" alt="logo" />
+      </div>
+    </main>
+    <main class="successScreen" id="successScreen">
+      <div class="contentPart">
+        <div class="leftPart">
+          <img src="./assets/images/signup/sucessbg.webp" alt="image" />
+        </div>
+        <div class="rightPart">
+          <img src="./assets/images/signup/congratsText.png" alt="congrats" />
+          <p>You Have Successfully registered your account</p>
+          <button onclick="location.href = 'login.html';" class="primaryBtn">
+            Log Into Account
+          </button>
+        </div>
+      </div>
+      <div class="footerLogoPart">
+        <img src="./assets/images/login/logo.webp" alt="logo" />
+      </div>
+    </main>
+    <script src="./assets/js/SignUp.js"></script>
+  </body>
+</html>

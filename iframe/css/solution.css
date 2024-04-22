@@ -1,0 +1,627 @@
+@import url('https://fonts.cdnfonts.com/css/lufga');
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('./fontFamily/lufga-cufonfonts/LufgaRegular.ttf') ,
+}
+@font-face {
+    font-family: 'Semi-Lufga';
+    src: url('./fontFamily/lufga-cufonfonts/LufgaSemiBold.ttf') ,
+}
+
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --ash: #efefef;
+    --darkAsh: #666666;
+    --fs10: clamp(5.1666666667px, 10vw* 100 / 1920, 10px);
+    --fs11: clamp(5.6833333333px, 11vw* 100 / 1920, 11px);
+    --fs12: clamp(6.2px, 12vw* 100 / 1920, 12px);
+    --fs13: clamp(6.7166666667px, 13vw* 100 / 1920, 13px);
+    --fs14: clamp(7.2333333333px, 14vw* 100 / 1920, 14px);
+    --fs15: clamp(7.75px, 15vw* 100 / 1920, 15px);
+    --fs16: clamp(8.2666666667px, 16vw* 100 / 1920, 16px);
+    --fs17: clamp(8.7833333333px, 17vw* 100 / 1920, 17px);
+    --fs18: clamp(9.3px, 18vw* 100 / 1920, 18px);
+    --fs19: clamp(9.8166666667px, 19vw* 100 / 1920, 19px);
+    --fs20: clamp(10.3333333333px, 20vw* 100 / 1920, 20px);
+    --fs21: clamp(10.85px, 21vw* 100 / 1920, 21px);
+    --fs22: clamp(11.3666666667px, 22vw* 100 / 1920, 22px);
+    --fs23: clamp(11.8833333333px, 23vw* 100 / 1920, 23px);
+    --fs24: clamp(12.4px, 24vw* 100 / 1920, 24px);
+    --fs25: clamp(12.9166666667px, 25vw* 100 / 1920, 25px);
+    --fs26: clamp(13.4333333333px, 26vw* 100 / 1920, 26px);
+    --fs27: clamp(13.95px, 27vw* 100 / 1920, 27px);
+    --fs28: clamp(14.4666666667px, 28vw* 100 / 1920, 28px);
+    --fs29: clamp(14.9833333333px, 29vw* 100 / 1920, 29px);
+    --fs30: clamp(15.5px, 30vw* 100 / 1920, 30px);
+    --fs31: clamp(16.0166666667px, 31vw* 100 / 1920, 31px);
+    --fs32: clamp(16.5333333333px, 32vw* 100 / 1920, 32px);
+    --fs33: clamp(17.05px, 33vw* 100 / 1920, 33px);
+    --fs34: clamp(17.5666666667px, 34vw* 100 / 1920, 34px);
+    --fs35: clamp(18.0833333333px, 35vw* 100 / 1920, 35px);
+    --fs36: clamp(18.6px, 36vw* 100 / 1920, 36px);
+    --fs37: clamp(19.1166666667px, 37vw* 100 / 1920, 37px);
+    --fs38: clamp(19.6333333333px, 38vw* 100 / 1920, 38px);
+    --fs39: clamp(20.15px, 39vw* 100 / 1920, 39px);
+    --fs40: clamp(20.6666666667px, 40vw* 100 / 1920, 40px);
+    --fs41: clamp(21.1833333333px, 41vw* 100 / 1920, 41px);
+    --fs42: clamp(21.7px, 42vw* 100 / 1920, 42px);
+    --fs43: clamp(22.2166666667px, 43vw* 100 / 1920, 43px);
+    --fs44: clamp(22.7333333333px, 44vw* 100 / 1920, 44px);
+    --fs45: clamp(23.25px, 45vw* 100 / 1920, 45px);
+    --fs46: clamp(23.7666666667px, 46vw* 100 / 1920, 46px);
+    --fs47: clamp(24.2833333333px, 47vw* 100 / 1920, 47px);
+    --fs48: clamp(24.8px, 48vw* 100 / 1920, 48px);
+    --fs49: clamp(25.3166666667px, 49vw* 100 / 1920, 49px);
+    --fs50: clamp(25.8333333333px, 50vw* 100 / 1920, 50px);
+    --fs51: clamp(26.35px, 51vw* 100 / 1920, 51px);
+    --fs52: clamp(26.8666666667px, 52vw* 100 / 1920, 52px);
+    --fs53: clamp(27.3833333333px, 53vw* 100 / 1920, 53px);
+    --fs54: clamp(27.9px, 54vw* 100 / 1920, 54px);
+    --fs55: clamp(28.4166666667px, 55vw* 100 / 1920, 55px);
+    --fs56: clamp(28.9333333333px, 56vw* 100 / 1920, 56px);
+    --fs57: clamp(29.45px, 57vw* 100 / 1920, 57px);
+    --fs58: clamp(29.9666666667px, 58vw* 100 / 1920, 58px);
+    --fs59: clamp(30.4833333333px, 59vw* 100 / 1920, 59px);
+    --fs60: clamp(31px, 60vw* 100 / 1920, 60px);
+    --fs61: clamp(31.5166666667px, 61vw* 100 / 1920, 61px);
+    --fs62: clamp(32.0333333333px, 62vw* 100 / 1920, 62px);
+    --fs63: clamp(32.55px, 63vw* 100 / 1920, 63px);
+    --fs64: clamp(33.0666666667px, 64vw* 100 / 1920, 64px);
+    --fs65: clamp(33.5833333333px, 65vw* 100 / 1920, 65px);
+    --fs66: clamp(34.1px, 66vw* 100 / 1920, 66px);
+    --fs67: clamp(34.6166666667px, 67vw* 100 / 1920, 67px);
+    --fs68: clamp(35.1333333333px, 68vw* 100 / 1920, 68px);
+    --fs69: clamp(35.65px, 69vw* 100 / 1920, 69px);
+    --fs70: clamp(36.1666666667px, 70vw* 100 / 1920, 70px);
+    --fs71: clamp(36.6833333333px, 71vw* 100 / 1920, 71px);
+    --fs72: clamp(37.2px, 72vw* 100 / 1920, 72px);
+    --fs73: clamp(37.7166666667px, 73vw* 100 / 1920, 73px);
+    --fs74: clamp(38.2333333333px, 74vw* 100 / 1920, 74px);
+    --fs75: clamp(38.75px, 75vw* 100 / 1920, 75px);
+    --fs76: clamp(39.2666666667px, 76vw* 100 / 1920, 76px);
+    --fs77: clamp(39.7833333333px, 77vw* 100 / 1920, 77px);
+    --fs78: clamp(40.3px, 78vw* 100 / 1920, 78px);
+    --fs79: clamp(40.8166666667px, 79vw* 100 / 1920, 79px);
+    --fs80: clamp(41.3333333333px, 80vw* 100 / 1920, 80px);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Lufga;
+    /* overflow: hidden; */
+}
+h1{
+    font-weight: 900;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+.flex-col{
+    flex-direction: column;
+}
+
+
+
+
+.header {
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    padding: .3rem 2rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.Open-Intelligence-Platform {
+    font-family: Lufga;
+   font-size: var(--fs23);
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--white);
+    margin: .8rem;
+}
+.selectIndustry{
+    margin-left: 2.5rem;
+}
+
+.headerIcons {
+    display: flex;
+}
+
+.searchImg,.notificationImg {
+    width: var(--fs26);
+    height: var(--fs26);
+    padding: 0rem 1rem;
+}
+.notificationImg{
+    padding-right: 2rem;
+    margin-top: .2rem;
+}
+.notificationCount{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 50%;
+    top: 18px;
+    margin-left: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notificationCount span{
+    font-size: var(--fs14);
+    font-weight: bold;
+}
+.line{
+    width: 1px;
+    height: 25px;
+    background-color: var(--white);
+    opacity: .4;
+}
+.normalExport{
+    padding-left: 2rem;
+}
+
+/* .notificationImg {
+    width: var(--fs26);
+    height: var(--fs26);
+} */
+
+.profileImg {
+    width: var(--fs37);
+    height: var(--fs37);
+    margin: 0 .5rem 0 2rem;
+}
+
+.headerSearchInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.dropdownImg {
+    width: var(--fs11);
+}
+
+.notSelect {
+    color: var(--white);
+    opacity: .3;
+}
+.switchInfo{
+    font-size: var(--fs17);
+}
+.downMenu{
+    padding: .5rem;
+}
+
+
+
+/* -----select field-----*/
+.selectField {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--ash);
+    opacity: .7;
+    width: 220px;
+    font-size: var(--fs18);
+}
+
+.select {
+    position: relative;
+}
+
+.selectInfo {
+    display: none;
+    background-color: var(--white);
+    border-radius: 5px;
+    position: absolute;
+    box-shadow: 0px 0px 5px var(--black);
+    width: 220px;
+    margin-top: .3rem;
+    cursor: pointer;
+}
+
+.options {
+    padding: .3rem 1rem;
+    color: var(--black);
+    font-size: var(--fs16);
+    background-color: transparent;
+    margin: .3rem 0rem;
+    border-radius: 5px;
+}
+
+.options:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.selectDropdownImg {
+    position: absolute;
+    right: .3rem;
+    top: 1.7rem;
+}
+
+
+/* --------------Toggle------------ */
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 25px;
+    margin: 0 1rem;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 21px;
+    width: 21px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--black);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--white);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--white);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translate(16px);
+    -ms-transform: translate(16px);
+    transform: translate(21px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* ------solutionSection------ */
+  .solutionSection{
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  .sideMenu{
+    background-color: var(--black);
+    width: 5.4%;
+    height: 100%;
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    overflow-y: auto; 
+    z-index: 9; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0rem;
+  }
+  .menuCard{
+    padding: .2rem 1rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menuIcon{
+    width: var(--fs30);
+    opacity: .4;
+  }
+  .menuIconFloting{
+    width: var(--fs50);
+  }
+  .cv{
+    padding: 1rem 0rem;
+  }
+  /* .menuIcon:hover{
+    opacity: 1;
+  } */
+  .menuCard p{
+    margin-top: 4px;
+    opacity: .5;
+    font-size: var(--fs14);
+  }
+  .active{
+    opacity: 1;
+  }
+.floting{
+    position: absolute;
+    bottom: 83px;
+    z-index: 10;
+}
+
+
+
+
+  /* ---------------solutionSection------------- */
+ .mainInfo{
+    padding-left: 5.5%;
+    margin-top: 4rem;
+    width: calc(100% - 5.5%);
+ }
+ .iconHeader{
+    width: calc(100% - 5.5%);
+    padding: .5rem 3rem;
+ }
+ .icon{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .icon img{
+    width: 55%;
+ }
+ .topCvIcons{
+    margin-top: .8rem;
+    gap: 3rem;
+ }
+ .iconTxt{
+    margin-top: 5px;
+ }
+ .solutionPatners{
+    margin-top: 1.2rem;
+ }
+ .solutionPatners .selectInfo{
+    right: 1rem;
+    margin-top: -.8rem;
+    width: 200px;
+
+ }
+ .solutionPatners .selectField{
+    font-size: var(--fs22);
+    font-weight: 500;
+    color: var(--black);
+    opacity: 1;
+    border-bottom: none;
+ }
+ .solutionPatners{
+    width: 220px;
+ }
+ .downArrowBlack{
+    width: var(--fs13);
+    margin-left: 1rem;
+ }
+
+ /* infoContainer */
+ .infoContainer{
+    background-color: var(--ash);
+    width: 100%;
+    height: 100%;
+ }
+ .selectIndustry{
+    
+ }
+ .searchAndFunctions{
+    padding: 1rem 3rem;
+ }
+ .searchAndFunctions img{
+    width: var(--fs25);
+ }
+ .partnerIcons{
+    position: relative;
+    gap: 3rem;
+ }
+ .d-none{
+display: none;
+ }
+ .pin{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50%;
+    top: 14px;
+    margin-left: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pin span{
+    font-size: var(--fs13);
+    font-weight: bold;
+}
+.dropDownAndInformation{
+gap: 1rem;
+position: relative;
+
+}
+.dropDown{
+    background-color: var(--white);
+    width: 20%;
+    height: 600px;
+
+}
+.Information{
+    background-color: var(--white);
+    width: 78%;
+    height: 600px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+
+}
+.context{
+  
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.image{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image img{
+    width: 80%;
+    height: 100%;
+}
+.Information h1{
+    font-size: var(--fs40);
+    padding-top: 1.5rem;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+.pinPopup{
+    position: absolute;
+    bottom: 1rem;
+    right: 3rem;
+    background-color: var(--white);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 1rem;
+    width: 600px;
+    border-radius: 10px;
+}
+.zoomSection img, .pinDownloadSection img{
+    width: var(--fs27);
+}
+.zoomSection, .pinDownloadSection{
+    gap: 1.5rem;
+}
+.zoomPersentage{
+    color: var(--darkAsh);
+    font-size: var(--fs20);
+}
+
+
+
+/* -----------------Accordian------------- */
+
+.dropDownAccordian{
+    background-color: var(--white);
+    padding-top: 2rem;
+}
+input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  h1 {
+    margin: 10px;
+  }
+  
+  .collapsible-accordion {
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); */
+  }
+  .collapsible-item-label {
+    display: flex;
+    /* justify-content: space-between; */
+    /* padding: 1em; */
+    cursor: pointer;
+    font-size: var(--fs19);
+    /* background: purple; */
+    color: var(--darkAsh);
+  }
+  .collapsible-item-label::before {
+    content: "";
+    background-image: url("images/Conceptvines Assets/patnerarrow.webp");
+    background-repeat: no-repeat;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+  }
+  .patnerarrow{
+    width: var(--fs14);
+    margin-right: .5rem;
+  }
+  .collapsible-item-content {
+    max-height: 0;
+    padding: 0 1em;
+    background: white;
+    transition: all 0.35s;
+    
+  }
+  
+  input:checked + .collapsible-item-label::after {
+    transform: rotate(90deg);
+  }
+  input:checked ~ .collapsible-item-content {
+    max-height: 100vh;
+
+    /* padding: 1em;             */
+  }
+  ul li{
+   list-style: none;
+  }
+  li{
+    padding: 1rem 0rem;
+    color: var(--darkAsh);
+  }
+  .selectedli{
+    color: var(--black);
+  }
+  .accordianActive{
+    font-weight: 600;
+    color: var(--black);
+  }
+  .activePatnerarrow{
+    transform: rotate(180deg);
+  }
+
+  

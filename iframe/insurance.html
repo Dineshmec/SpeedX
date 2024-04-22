@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.css">
+  <link rel="stylesheet" href="./css/solution.css">
+
+</head>
+<body>
+  <div>
+    <h1>Insurance ER Diagram</h1>
+    <div class="mermaid" id="mermaidHolder"></div>
+  </div>
+  <div id="content">
+    
+  <script>
+    // Helper function to load scripts dynamically
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', (e) => reject(e));
+        document.body.appendChild(script);
+      });
+    }
+
+    function initializeMermaid(markup) {
+      if (!window.mermaid) {
+        const mermaidScript = loadScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js'
+        );
+        mermaidScript.then(() => {
+          window.mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
+          renderMermaid(markup);
+        });
+      } else {
+        renderMermaid(markup);
+      }
+    }
+
+    function renderMermaid(markup) {
+      document.getElementById('mermaidHolder').innerHTML = markup;
+      window.mermaid.mermaidAPI.render('mermaidHolder', markup, () => {
+        // Callback function after rendering
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mermaidMarkup = `
+      erDiagram
+            ADDRESS {
+                BIGINT id
+                VARCHAR(255) building
+                VARCHAR(255) streetName
+                VARCHAR(255) city
+            }
+            BENEFICIARY {
+                BIGINT id
+                VARCHAR(255) name
+                BIGINT address_id
+                FLOAT share
+            }
+            CLAIM {
+                BIGINT id
+                ENUM claimType
+                VARCHAR(255) location
+                VARCHAR(255) lossCause
+            }
+            CLAIMSBORDEREAU {
+                BIGINT id
+                VARCHAR(255) treatyReference
+                VARCHAR(255) policyholder
+                VARCHAR(255) policyNumber
+            }
+            MOTORCOVERAGE {
+                BIGINT id
+                VARCHAR(255) policyNumber
+                DATE inceptionDate
+                DATE expiryDate
+            }
+            COMMERCIAL {
+                BIGINT id
+                VARCHAR(255) name
+                BIGINT registeredAddressId
+                DATE dateFounded
+            }
+            CONVICTION {
+                BIGINT id
+                DATE offenceDate
+                ENUM offenceCode
+                DATE date
+            }
+            DRIVER {
+                BIGINT id
+                VARCHAR(255) name
+                ENUM gender
+                DATE driverDOB
+            }
+            DRIVINGLICENCE {
+                BIGINT id
+                VARCHAR(255) licenceNumber
+                DATE issueDate
+                DATE expiryDate
+            }
+            MEDICALCONDITION {
+                BIGINT id
+                ENUM notifiableCondition
+                VARCHAR(255) status
+                VARCHAR(255) medicalDVLArestriction
+            }
+            INSURANCEENTITY {
+                BIGINT id
+                VARCHAR(255) name
+                VARCHAR(255) tradeName
+                VARCHAR(255) type
+            }
+            PERSONAL {
+                BIGINT id
+                VARCHAR(255) firstName
+                VARCHAR(255) lastName
+                ENUM salutation
+            }
+            PREMIUMBORDEREAU {
+                BIGINT id
+                VARCHAR(255) treatyReference
+                VARCHAR(255) policyholder
+                VARCHAR(255) policyNumber
+            }
+            PRODUCT {
+                BIGINT id
+                VARCHAR(255) lineOfBusiness
+                ENUM productModel
+                ENUM contractType
+            }
+            RECEIPT {
+                BIGINT id
+                BIGINT claimId
+                ENUM receiptType
+                DATE receiptDate
+            }
+            VEHICLE {
+                BIGINT id
+                FLOAT HP
+                FLOAT KW
+                FLOAT torque
+            }
+            BENEFICIARY ||--o{ ADDRESS : address_id
+            CLAIMSBORDEREAU ||--o{ MOTORCOVERAGE : policyNumber
+            COMMERCIAL ||--o{ ADDRESS : registeredAddressId
+            DRIVER ||--o{ MEDICALCONDITION : medicalConditionId
+            DRIVER ||--o{ CONVICTION : convictionId
+            DRIVER ||--o{ DRIVINGLICENCE : drivingLicenceId
+            INSURANCEENTITY ||--o{ ADDRESS : addressId
+            PERSONAL ||--o{ ADDRESS : addressId
+            PREMIUMBORDEREAU ||--o{ MOTORCOVERAGE : policyNumber
+            RECEIPT ||--o{ CLAIM : claimId
+ `
+      initializeMermaid(mermaidMarkup);
+    });
+  </script>
+</body>
+</html>
+

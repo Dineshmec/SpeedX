@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+  <div>
+    <h1>Instant Domestic Transfer</h1>
+    <div class="mermaid" id="mermaidHolder"></div>
+  </div>
+  <div id="content">
+    <h1>Instant Domestic Transfer Workflow</h1>
+    <table>
+      <tr>
+        <th>Steps ID</th>
+        <th>Action</th>
+        <th>Source Actors</th>
+        <th>Target Actor</th>
+        <th>Action Details</th>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td>Log in to the banking application</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client accesses the bank's application (mobile app or online banking portal)</td>
+        <td>Client action to log</td>
+        <td>The application interface is displayed to the client.</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Navigate to the transfer menu</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client selects the option to initiate a transfer</td>
+        <td>Client selects the “Initiate Transfer”</td>
+        <td>Transfer options menu is displayed</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Select the type of transfer</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client chooses whether the transfer is domestic (within the same bank) or international.</td>
+        <td>Client’s selection of transfer type.</td>
+        <td>Appropriate form or fields displayed for the selected transfer type.</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Input the recipient’s bank details</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client enters the recipient's account details (account number, bank name, IFSC code for transfers).</td>
+        <td>Recipient’s banking</td>
+        <td>Details are captured and temporarily stored</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>Enter the amount to be transferred</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client enters the transfer amount and optional comments or references</td>
+        <td>Amount to be transferred and any additional comments.</td>
+        <td>Captured details displayed for review.</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>Review all entered details for accuracy and confirm the transaction.</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client reviews and confirms the transfer details.</td>
+        <td>Client’s review and confirmation</td>
+        <td>Transaction details are locked</td>
+      </tr>
+      <tr>
+        <td>07</td>
+        <td>The application checks the client's account balance</td>
+        <td>Bank's Application</td>
+        <td>Client</td>
+        <td>The bank's application validates the Client account balance and transfer limits</td>
+        <td>Details of the proposed transfer</td>
+        <td>Validation result that confirms</td>
+      </tr>
+      <tr>
+        <td>08</td>
+        <td>Process the debit from the client’s account</td>
+        <td>Bank's Application</td>
+        <td>Both the Client account and the Recipient account</td>
+        <td>The bank's application debits the Client account and credits the recipient's account within the same core banking system</td>
+        <td>Validated transaction details</td>
+        <td>Client’s account is debited and the recipient’s account is credited</td>
+      </tr>
+      <tr>
+        <td>09</td>
+        <td>Record the transaction in the bank’s system</td>
+        <td>Bank's Application</td>
+        <td>Client</td>
+        <td>The transaction is recorded, and a confirmation is displayed to the Client</td>
+        <td>Confirmation of transaction completion from the core banking system.</td>
+        <td>Display of transaction confirmation, receipt</td>
+      </tr>
+    </table>
+    
+    
+    
+  </div>
+
+  <script>
+    // Helper function to load scripts dynamically
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', (e) => reject(e));
+        document.body.appendChild(script);
+      });
+    }
+
+    function initializeMermaid(markup) {
+      if (!window.mermaid) {
+        const mermaidScript = loadScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js'
+        );
+        mermaidScript.then(() => {
+          window.mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
+          renderMermaid(markup);
+        });
+      } else {
+        renderMermaid(markup);
+      }
+    }
+
+    function renderMermaid(markup) {
+      document.getElementById('mermaidHolder').innerHTML = markup;
+      window.mermaid.mermaidAPI.render('mermaidHolder', markup, () => {
+        // Callback function after rendering
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mermaidMarkup =`sequenceDiagram
+    participant C as Client
+    participant BA as Bank's Application
+    participant CA as Client Account
+    participant RA as Recipient Account
+
+    C->>BA: Log in to the banking application
+    C->>BA: Navigate to the transfer menu
+    C->>BA: Select the type of transfer
+    C->>BA: Input the recipient’s bank details
+    C->>BA: Enter the amount to be transferred
+    C->>BA: Review all entered details for accuracy and confirm the transaction.
+    BA->>C: Checks the client's account balance
+    BA->>CA: Process the debit from the client’s account
+    BA->>RA: Credit the recipient's account
+    BA->>C: Record the transaction in the bank’s system
+
+`
+
+      initializeMermaid(mermaidMarkup);
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+    }
+  
+    table th,
+    table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+  
+    table th {
+      background-color: #f4f4f4;
+      text-align: left;
+    }
+  
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+  
+</body>
+</html>

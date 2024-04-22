@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+  <div>
+    <h1>Customer Service bot</h1>
+    <div class="mermaid" id="mermaidHolder"></div>
+  </div>
+  <div id="content">
+    <h1>Customer Service bot Workflow</h1>
+    <table>
+      <tr>
+        <th>Steps ID</th>
+        <th>Action</th>
+        <th>Source Actors</th>
+        <th>Target Actor</th>
+        <th>Action Details</th>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td>Client Interaction Start</td>
+        <td>Client</td>
+        <td>Application</td>
+        <td>Client opens the banking mobile app, website, or messaging platform</td>
+        <td>Client action</td>
+        <td>Chatbot interface loads on the client’s device</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Chatbot Greeting</td>
+        <td>Chatbot</td>
+        <td>Client</td>
+        <td>Chatbot greets the client with a welcome message</td>
+        <td>Detection of client’s presence.</td>
+        <td>Welcome message displayed to the client.</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Authentication Prompt</td>
+        <td>Chatbot</td>
+        <td>Client</td>
+        <td>Chatbot prompts the customer for authentication (e.g., username/password, biometrics)</td>
+        <td>Initial client engagement</td>
+        <td>Authentication prompt sent to the client.</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Authentication Credentials Submission</td>
+        <td>Client</td>
+        <td>Client</td>
+        <td>Client provides authentication credentials</td>
+        <td>Username/password or biometric data from the client</td>
+        <td>Credentials transmitted to the backend for verification</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>Identity Verification</td>
+        <td>Chatbot</td>
+        <td>Client</td>
+        <td>Chatbot verifies the customer's identity with the backend systems</td>
+        <td>Authentication credentials from the client.</td>
+        <td>Verification result</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>Client Request</td>
+        <td>Client</td>
+        <td>Client</td>
+        <td>Client types or speaks a request (e.g., "Check my account balance")</td>
+        <td>Client’s spoken or typed request</td>
+        <td>Digital recording or text captured by the system</td>
+      </tr>
+      <tr>
+        <td>07</td>
+        <td>Input Processing by NLP Engine</td>
+        <td>NLP</td>
+        <td>NLP</td>
+        <td>The NLP engine processes the Client input, identifying the intent and extracting relevant entities (e.g., account type).</td>
+        <td>Client’s request in text or speech form.</td>
+        <td>Intent and entities identified (e.g., intent to check balance, account type).</td>
+      </tr>
+      <tr>
+        <td>08</td>
+        <td>Intent Classification</td>
+        <td>NLP</td>
+        <td>NLP</td>
+        <td>The NLP engine classifies the intent of the Client request (e.g., "Check Balance")</td>
+        <td>Data from the NLP processing</td>
+        <td>Classified intent</td>
+      </tr>
+      <tr>
+        <td>09</td>
+        <td>Response Determination</td>
+        <td>Dialog Manager</td>
+        <td>Dialog Manager</td>
+        <td>The dialog manager determines the appropriate response or action based on the identified intent and extracted entities</td>
+        <td>Intent and entities from the NLP engine.</td>
+        <td>Decision on the next step</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Information Clarification (if needed)</td>
+        <td>Dialog Manager</td>
+        <td>Dialog Manager</td>
+        <td>If additional information is required, the dialog manager prompts the customer for clarification or missing details.</td>
+        <td>Incomplete or ambiguous client request</td>
+        <td>Prompt for more information.</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Backend Interaction</td>
+        <td>Dialog Manager</td>
+        <td>Backend Systems</td>
+        <td>The dialog manager interacts with the backend systems (core banking, CRM, databases) through APIs to retrieve the requested information or execute transactions.</td>
+        <td>API request</td>
+        <td>Data retrieved or transaction status</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Data Retrieval</td>
+        <td>Dialog Manager</td>
+        <td>Client</td>
+        <td>For example, if the intent is "Check Balance," the dialog manager retrieves the Client account balance from the core banking system.</td>
+        <td>Request for balance check to the core banking system.</td>
+        <td>Account balance information</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Response Formulation</td>
+        <td>Dialog Manager</td>
+        <td>Dialog Manager</td>
+        <td>The dialog manager formulates a natural language response based on the retrieved data or transaction result.</td>
+        <td>Data or transaction results from the backend.</td>
+        <td>Formulated response in natural language.</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Personalization</td>
+        <td>CRM</td>
+        <td>Client</td>
+        <td>The response is personalized using customer information from the CRM system.</td>
+        <td>Customer data from CRM.</td>
+        <td>Personalized response content.</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Response Delivery</td>
+        <td>Chatbot</td>
+        <td>Client</td>
+        <td>The chatbot delivers the response to the customer through the appropriate channel (e.g., mobile app, website, messaging platform).</td>
+        <td>Prepared response from the dialog manager.</td>
+        <td>Response delivered to the client via the selected channel</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Monitoring for Further Input</td>
+        <td>Chatbot</td>
+        <td>Chatbot</td>
+        <td>The chatbot monitors for further customer input or queries</td>
+        <td>Any follow-up interaction from the client.</td>
+        <td>System remains active to capture and process additional client input.</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Conversation Closure</td>
+        <td>Client</td>
+        <td>Client</td>
+        <td>Client indicates the desire to end the conversation (e.g., "Thank you," "Goodbye").</td>
+        <td>Client’s closing remark</td>
+        <td>Signal to the system to end the session.</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Closing Interaction</td>
+        <td>Chatbot</td>
+        <td>Chatbot</td>
+        <td>Chatbot provides a closing message and prompts for feedback or a satisfaction rating.</td>
+        <td>End of conversation signal.</td>
+        <td>Closing message and feedback prompt delivered to the client.</td>
+      </tr>
+    </table>
+    
+    
+    
+    
+  </div>
+
+  <script>
+    // Helper function to load scripts dynamically
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', (e) => reject(e));
+        document.body.appendChild(script);
+      });
+    }
+
+    function initializeMermaid(markup) {
+      if (!window.mermaid) {
+        const mermaidScript = loadScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js'
+        );
+        mermaidScript.then(() => {
+          window.mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
+          renderMermaid(markup);
+        });
+      } else {
+        renderMermaid(markup);
+      }
+    }
+
+    function renderMermaid(markup) {
+      document.getElementById('mermaidHolder').innerHTML = markup;
+      window.mermaid.mermaidAPI.render('mermaidHolder', markup, () => {
+        // Callback function after rendering
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mermaidMarkup =`sequenceDiagram
+    participant C as Client
+    participant A as Application
+    participant Ch as Chatbot
+    participant NLP as NLP Engine
+    participant DM as Dialog Manager
+    participant BS as Backend Systems
+    participant CRM as CRM System
+
+    C->>A: Client Interaction Start
+    A->>Ch: Chatbot Greeting
+    Ch->>C: Authentication Prompt
+    C->>C: Authentication Credentials Submission
+    Ch->>C: Identity Verification
+    C->>C: Client Request
+    NLP->>NLP: Input Processing by NLP Engine
+    NLP->>NLP: Intent Classification
+    DM->>DM: Response Determination
+    DM->>DM: Information Clarification (if needed)
+    DM->>BS: Backend Interaction
+    DM->>C: Data Retrieval
+    DM->>DM: Response Formulation
+    CRM->>C: Personalization
+    Ch->>C: Response Delivery
+    Ch->>Ch: Monitoring for Further Input
+    C->>C: Conversation Closure
+    Ch->>Ch: Closing Interaction
+
+
+`
+
+      initializeMermaid(mermaidMarkup);
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+    }
+  
+    table th,
+    table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+  
+    table th {
+      background-color: #f4f4f4;
+      text-align: left;
+    }
+  
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+  
+</body>
+</html>

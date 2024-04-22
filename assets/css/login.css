@@ -1,0 +1,984 @@
+@font-face {
+  font-family: "Lufga";
+  src: url("../fontFamily/lufga-cufonfonts/LufgaRegular.ttf");
+}
+@font-face {
+  font-family: "Semi-Lufga";
+  src: url("../fontFamily/lufga-cufonfonts/LufgaSemiBold.ttf");
+}
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --ash: #efefef;
+  --fs10: clamp(5.1666666667px, 10vw * 100 / 1920, 10px);
+  --fs11: clamp(5.6833333333px, 11vw * 100 / 1920, 11px);
+  --fs12: clamp(6.2px, 12vw * 100 / 1920, 12px);
+  --fs13: clamp(6.7166666667px, 13vw * 100 / 1920, 13px);
+  --fs14: clamp(7.2333333333px, 14vw * 100 / 1920, 14px);
+  --fs15: clamp(7.75px, 15vw * 100 / 1920, 15px);
+  --fs16: clamp(8.2666666667px, 16vw * 100 / 1920, 16px);
+  --fs17: clamp(8.7833333333px, 17vw * 100 / 1920, 17px);
+  --fs18: clamp(9.3px, 18vw * 100 / 1920, 18px);
+  --fs19: clamp(9.8166666667px, 19vw * 100 / 1920, 19px);
+  --fs20: clamp(10.3333333333px, 20vw * 100 / 1920, 20px);
+  --fs21: clamp(10.85px, 21vw * 100 / 1920, 21px);
+  --fs22: clamp(11.3666666667px, 22vw * 100 / 1920, 22px);
+  --fs23: clamp(11.8833333333px, 23vw * 100 / 1920, 23px);
+  --fs24: clamp(12.4px, 24vw * 100 / 1920, 24px);
+  --fs25: clamp(12.9166666667px, 25vw * 100 / 1920, 25px);
+  --fs26: clamp(13.4333333333px, 26vw * 100 / 1920, 26px);
+  --fs27: clamp(13.95px, 27vw * 100 / 1920, 27px);
+  --fs28: clamp(14.4666666667px, 28vw * 100 / 1920, 28px);
+  --fs29: clamp(14.9833333333px, 29vw * 100 / 1920, 29px);
+  --fs30: clamp(15.5px, 30vw * 100 / 1920, 30px);
+  --fs31: clamp(16.0166666667px, 31vw * 100 / 1920, 31px);
+  --fs32: clamp(16.5333333333px, 32vw * 100 / 1920, 32px);
+  --fs33: clamp(17.05px, 33vw * 100 / 1920, 33px);
+  --fs34: clamp(17.5666666667px, 34vw * 100 / 1920, 34px);
+  --fs35: clamp(18.0833333333px, 35vw * 100 / 1920, 35px);
+  --fs36: clamp(18.6px, 36vw * 100 / 1920, 36px);
+  --fs37: clamp(19.1166666667px, 37vw * 100 / 1920, 37px);
+  --fs38: clamp(19.6333333333px, 38vw * 100 / 1920, 38px);
+  --fs39: clamp(20.15px, 39vw * 100 / 1920, 39px);
+  --fs40: clamp(20.6666666667px, 40vw * 100 / 1920, 40px);
+  --fs41: clamp(21.1833333333px, 41vw * 100 / 1920, 41px);
+  --fs42: clamp(21.7px, 42vw * 100 / 1920, 42px);
+  --fs43: clamp(22.2166666667px, 43vw * 100 / 1920, 43px);
+  --fs44: clamp(22.7333333333px, 44vw * 100 / 1920, 44px);
+  --fs45: clamp(23.25px, 45vw * 100 / 1920, 45px);
+  --fs46: clamp(23.7666666667px, 46vw * 100 / 1920, 46px);
+  --fs47: clamp(24.2833333333px, 47vw * 100 / 1920, 47px);
+  --fs48: clamp(24.8px, 48vw * 100 / 1920, 48px);
+  --fs49: clamp(25.3166666667px, 49vw * 100 / 1920, 49px);
+  --fs50: clamp(25.8333333333px, 50vw * 100 / 1920, 50px);
+  --fs51: clamp(26.35px, 51vw * 100 / 1920, 51px);
+  --fs52: clamp(26.8666666667px, 52vw * 100 / 1920, 52px);
+  --fs53: clamp(27.3833333333px, 53vw * 100 / 1920, 53px);
+  --fs54: clamp(27.9px, 54vw * 100 / 1920, 54px);
+  --fs55: clamp(28.4166666667px, 55vw * 100 / 1920, 55px);
+  --fs56: clamp(28.9333333333px, 56vw * 100 / 1920, 56px);
+  --fs57: clamp(29.45px, 57vw * 100 / 1920, 57px);
+  --fs58: clamp(29.9666666667px, 58vw * 100 / 1920, 58px);
+  --fs59: clamp(30.4833333333px, 59vw * 100 / 1920, 59px);
+  --fs60: clamp(31px, 60vw * 100 / 1920, 60px);
+  --fs61: clamp(31.5166666667px, 61vw * 100 / 1920, 61px);
+  --fs62: clamp(32.0333333333px, 62vw * 100 / 1920, 62px);
+  --fs63: clamp(32.55px, 63vw * 100 / 1920, 63px);
+  --fs64: clamp(33.0666666667px, 64vw * 100 / 1920, 64px);
+  --fs65: clamp(33.5833333333px, 65vw * 100 / 1920, 65px);
+  --fs66: clamp(34.1px, 66vw * 100 / 1920, 66px);
+  --fs67: clamp(34.6166666667px, 67vw * 100 / 1920, 67px);
+  --fs68: clamp(35.1333333333px, 68vw * 100 / 1920, 68px);
+  --fs69: clamp(35.65px, 69vw * 100 / 1920, 69px);
+  --fs70: clamp(36.1666666667px, 70vw * 100 / 1920, 70px);
+  --fs71: clamp(36.6833333333px, 71vw * 100 / 1920, 71px);
+  --fs72: clamp(37.2px, 72vw * 100 / 1920, 72px);
+  --fs73: clamp(37.7166666667px, 73vw * 100 / 1920, 73px);
+  --fs74: clamp(38.2333333333px, 74vw * 100 / 1920, 74px);
+  --fs75: clamp(38.75px, 75vw * 100 / 1920, 75px);
+  --fs76: clamp(39.2666666667px, 76vw * 100 / 1920, 76px);
+  --fs77: clamp(39.7833333333px, 77vw * 100 / 1920, 77px);
+  --fs78: clamp(40.3px, 78vw * 100 / 1920, 78px);
+  --fs79: clamp(40.8166666667px, 79vw * 100 / 1920, 79px);
+  --fs80: clamp(41.3333333333px, 80vw * 100 / 1920, 80px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: Lufga;
+  text-decoration: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-input-placeholder {
+  content: "Enter your password";
+}
+
+.cr-wrapper input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.cr-wrapper span {
+  font-size: 16px;
+  position: absolute;
+  left: 10%;
+  top: 0 !important;
+}
+
+.cr-wrapper {
+  display: flex;
+  width: 20px !important;
+  position: relative;
+  cursor: pointer;
+}
+.cr-wrapper .cr-input {
+  width: 20px !important;
+  margin-right: 2rem !important;
+  cursor: pointer;
+}
+
+.cr-wrapper input[type="checkbox"] ~ .cr-input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: transparent;
+  transition: all 250ms;
+  border: 1px solid #94a3b8;
+  border-radius: 3px;
+  transform: translate(0, -50%);
+}
+
+.cr-wrapper input[type="checkbox"] ~ .cr-input::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  transition: all 250ms;
+  background-color: #ffffff;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.cr-wrapper input:checked ~ .cr-input::after {
+  display: block;
+}
+
+.cr-wrapper:hover input[type="checkbox"]:not([disabled]) ~ .cr-input,
+.cr-wrapper input[type="checkbox"]:focus ~ .cr-input {
+  background: #e2e8f0;
+  border-color: #64748b;
+}
+
+.cr-wrapper input[type="checkbox"]:checked ~ .cr-input {
+  background: #3075d0;
+  border-color: #3075d0;
+}
+
+.cr-wrapper input[type="checkbox"]:disabled ~ .cr-input {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cr-wrapper input[type="checkbox"]:disabled ~ .cr-input::after {
+  background: #ffffff;
+}
+
+.cr-wrapper:hover input[type="checkbox"]:not([disabled]):checked ~ .cr-input,
+.cr-wrapper input[type="checkbox"]:checked:focus ~ .cr-input {
+  background: #3075d0;
+  border-color: #3075d0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+img {
+  display: block;
+}
+body {
+  font-family: Lufga;
+}
+/* uitility class */
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.primaryBtn {
+  width: 100%;
+  color: white;
+  background-color: #000;
+  padding: 1rem;
+  font-size: var(--fs20);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btnRound {
+  width: fit-content;
+  border-radius: 100px;
+  padding: 0.8rem 2rem;
+}
+.primaryBtn:hover {
+  transform: scale(0.97);
+}
+/* login screen */
+.loginScreen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  background-color: #ffffff;
+}
+.loginScreen .leftPart {
+  width: 50%;
+  padding: 5vw;
+  padding-bottom: 2vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.loginScreen .rightPart {
+  width: 50%;
+  padding: 5vw;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.loginScreen .leftPart .headingPart h2 {
+  font-size: var(--fs50);
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.loginScreen .leftPart .headingPart p {
+  font-size: var(--fs24);
+  opacity: 0.7;
+}
+.loginScreen .leftPart .imgPart {
+  width: 90%;
+  display: flex;
+}
+.loginScreen .leftPart .imgPart img {
+  width: 100%;
+}
+.loginScreen .leftPart .logoPart {
+  width: 20%;
+  display: flex;
+}
+.loginScreen .leftPart .logoPart img {
+  width: 100%;
+}
+
+.loginScreen .rightPart form {
+  width: 70%;
+  margin: auto;
+}
+.loginScreen .rightPart form .headingPart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2vw;
+}
+.loginScreen .rightPart form .headingPart h2 {
+  font-size: var(--fs40);
+}
+.loginScreen .rightPart form .headingPart p {
+  font-size: var(--fs15);
+  color: gray;
+}
+.loginScreen .rightPart form .headingPart p a {
+  font-size: var(--fs20);
+  color: #000;
+  cursor: pointer;
+}
+.loginScreen .rightPart form .inputSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+}
+.loginScreen .rightPart form .inputSection div {
+  width: 100%;
+}
+.loginScreen .rightPart form .inputSection div .input {
+  width: 100%;
+  padding: 1rem;
+  font-size: var(--fs20);
+  background-color: transparent;
+  border: 1px solid gray;
+}
+.loginScreen .rightPart form .inputSection .passwordInput {
+  position: relative;
+}
+.loginScreen .rightPart form .inputSection .passwordInput button {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.loginScreen .rightPart form .inputSection .passwordInput button img {
+  width: 100%;
+}
+.loginScreen .rightPart form .optionPart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* opacity: 0.7; */
+  font-size: var(--fs15);
+  margin-bottom: 2vw;
+}
+.loginScreen .rightPart form .optionPart > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  white-space: nowrap;
+}
+.loginScreen .rightPart form .optionPart > div label {
+  line-height: 100%;
+  cursor: pointer;
+  color: gray;
+  user-select: none;
+}
+.loginScreen .rightPart form .optionPart .forget {
+  justify-content: flex-end;
+}
+.loginScreen .rightPart form .optionPart .forget p {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.loginScreen .rightPart form .optionPart .forget p:hover {
+  opacity: 0.6;
+}
+
+.loginScreen .allRightPart {
+  position: absolute;
+  bottom: 2vw;
+  width: 100%;
+  text-align: center;
+  font-size: var(--fs20);
+  opacity: 0.6;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.navigate {
+  width: 100%;
+}
+
+/* signUp screen */
+.signUpScreen {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.signUpScreen .contentPart {
+  padding: 5vw 5vw;
+  text-transform: capitalize;
+}
+.signUpScreen .headingPart h2 {
+  font-size: var(--fs60);
+  color: #000;
+}
+.signUpScreen .headingPart p {
+  font-size: var(--fs40);
+  color: #808080;
+}
+
+.signUpScreen .contentPart {
+  width: 50%;
+}
+.signUpScreen .contentPart .signUpformPart {
+  width: 27%;
+  margin-left: auto;
+  margin-top: 4vw;
+  position: absolute;
+  left: 16%;
+  z-index: 999;
+}
+.signUpScreen .contentPart .signUpformPart .inputSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+}
+.signUpScreen .contentPart .signUpformPart .inputSection div {
+  width: 100%;
+}
+.signUpScreen .contentPart .signUpformPart .inputSection div .input {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: var(--fs20);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #80808083;
+}
+.signUpScreen
+  .contentPart
+  .signUpformPart
+  .inputSection
+  div
+  .input::placeholder {
+  color: #626262;
+}
+.signUpScreen .contentPart .signUpformPart .inputSection .passwordInput {
+  position: relative;
+}
+.signUpScreen .contentPart .signUpformPart .inputSection .passwordInput button {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.signUpScreen
+  .contentPart
+  .signUpformPart
+  .inputSection
+  .passwordInput
+  button
+  img {
+  width: 100%;
+}
+
+.signUpScreen .footerLogoPart {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  padding: 0 0 0 3vw;
+}
+.signUpScreen .footerLogoPart a {
+  width: 10%;
+  position: relative;
+  background-color: white;
+  /* margin-left: 4vw; */
+}
+.signUpScreen .footerLogoPart a .logoImg {
+  width: 100%;
+  margin-bottom: 3vw;
+}
+.signUpScreen .footerLogoPart .cookImg {
+  width: 90%;
+}
+
+/* otp screen */
+.otpScreen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.otpScreen .contentPart {
+  width: 50%;
+  margin: auto;
+}
+
+.otpScreen .contentPart .headingPart {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.otpScreen .contentPart .headingPart h2 {
+  font-size: var(--fs25);
+  font-weight: 400;
+  color: #9c9c9c;
+}
+.otpScreen .contentPart .headingPart h3 {
+  font-size: var(--fs35);
+  font-family: Semi-Lufga;
+  font-weight: 900;
+}
+.otpScreen .contentPart .headingPart p {
+  font-size: var(--fs20);
+  font-weight: 100;
+  color: #9c9c9c;
+}
+.otpScreen .contentPart .otpPart {
+  position: relative;
+}
+.otpScreen .contentPart .otpPart .otpInputSection {
+  border: 1px solid transparent;
+  position: relative;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpInputPart {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 10vw auto 1vw;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpInputPart div {
+  width: 100%;
+  margin: auto;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpInputPart .otpInput {
+  width: 100%;
+  padding: 0 0.8rem;
+  font-size: var(--fs35);
+  letter-spacing: 1.3rem;
+  border: none;
+  margin-left: 10px;
+  font-weight: 900;
+  background-color: transparent;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpInputPart .otp-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.otpScreen
+  .contentPart
+  .otpPart
+  .otpInputSection
+  .otpInputPart
+  .otp-container
+  input {
+  width: 30px;
+  height: 30px;
+  font-size: var(--fs30);
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid lightgray;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpInputPart label {
+  color: gray;
+  font-size: var(--fs15);
+  text-transform: capitalize;
+}
+
+.otpScreen .contentPart .otpPart .otpInputSection .otpTopImg {
+  width: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1vw;
+  z-index: -10;
+}
+.otpScreen .contentPart .otpPart .otpInputSection .otpBottomImg {
+  width: 100%;
+  margin: auto;
+}
+.otpScreen .contentPart .otpPart .optionPart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  position: absolute;
+  top: 55%;
+}
+.otpScreen .contentPart .otpPart .optionPart .timerPart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.otpScreen .contentPart .otpPart .optionPart .timerPart p {
+  color: #363636;
+  font-size: var(--fs15);
+  text-transform: capitalize;
+}
+.otpScreen .contentPart .otpPart .optionPart button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs15);
+}
+.otpScreen .contentPart .otpPart .optionPart button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.otpScreen .contentPart .otpPart .optionPart button:disabled img {
+  opacity: 0.4;
+}
+.otpScreen .contentPart .otpPart .optionPart button img {
+  width: 25px;
+  height: 25px;
+}
+
+.otpScreen .footerLogoPart {
+  width: 10%;
+  position: absolute;
+  bottom: 6%;
+  left: 5%;
+}
+.otpScreen .footerLogoPart img {
+  width: 100%;
+}
+
+/* success screen */
+.successScreen {
+  width: 90%;
+  margin: auto;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  display: none;
+}
+.successScreen .contentPart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10vw 5vw;
+}
+.successScreen .contentPart .leftPart {
+  width: 35%;
+}
+.successScreen .contentPart .leftPart img {
+  width: 100%;
+}
+.successScreen .contentPart .rightPart {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.successScreen .contentPart .rightPart img {
+  width: 100%;
+}
+.successScreen .contentPart .rightPart button {
+  width: fit-content;
+  border-radius: 100px;
+  padding: 0.8rem 2rem;
+  margin-top: 3rem;
+}
+
+.successScreen .footerLogoPart {
+  width: 10%;
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 7%;
+  left: 0%;
+  /* z-index: -999; */
+}
+.successScreen .footerLogoPart img {
+  width: 100%;
+}
+.inputAndErrPart {
+  position: relative;
+}
+.error_show {
+  color: #ff0000;
+  font-size: var(--fs14);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  text-transform: none;
+}
+/* forgot screen */
+.forgotScreenOne {
+  display: flex;
+  justify-content: flex-start;
+  display: block;
+  /* margin-top: 1vw; */
+}
+.forgotScreenOne .contentPart {
+  /* border: 1px solid red; */
+  margin: 0 auto !important;
+  position: absolute;
+  bottom: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.forgotScreenOne .inputSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+}
+.forgotScreenOne .handImgSection {
+  /* border: 1px solid red; */
+  width: 50%;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.forgotScreenOne .handImgSection .otpBottomImg {
+  width: 100%;
+  margin: auto;
+}
+.forgotScreenOne .handImgSection .optionPart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0rem;
+  position: absolute;
+  top: 16%;
+}
+.forgotScreenOne .handImgSection .optionPart .timerPart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.forgotScreenOne .handImgSection .optionPart .timerPart p {
+  color: #363636;
+  font-size: var(--fs15);
+  text-transform: capitalize;
+}
+.forgotScreenOne .handImgSection .optionPart button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs15);
+}
+.forgotScreenOne .handImgSection .optionPart button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.forgotScreenOne .handImgSection .optionPart button:disabled img {
+  opacity: 0.4;
+}
+.forgotScreenOne .handImgSection .optionPart button img {
+  width: 25px;
+  height: 25px;
+}
+.forgotScreenOne .forgotPart .otpBottomImg {
+  /* border: 1px solid red; */
+}
+.forgotScreenOne .forgotPart .optionPart {
+  /* border: 1px solid red; */
+  top: 65% !important;
+  display: none !important;
+}
+.forgotScreenOne .forgotPwdFormPart {
+  width: 50%;
+  margin: 5vw auto 2vw auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+.forgotScreenOne .forgotPwdFormPart .headingPart {
+  margin-bottom: 2.5vw;
+}
+.forgotScreenOne .contentPart .inputSection div {
+  width: 100%;
+}
+.forgotScreenOne .contentPart .inputSection div .input {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: var(--fs20);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #80808083;
+}
+.forgotScreenOne .contentPart .inputSection div .input::placeholder {
+  color: #626262;
+}
+.forgotScreenOne .forgotPwdFormPart .primaryBtn {
+  width: 70%;
+  min-width: fit-content;
+  margin-top: 2.5vw;
+}
+.forgotScreenOne .forgotPwdFormPart a.backtoLogin {
+  color: gray;
+  font-size: var(--fs15);
+}
+.checkYourEmailPart {
+  /* border: 1px solid red; */
+  margin: 0 0 5vw 0;
+}
+.setNewPwdFormPart .headingPart,
+.checkYourEmailPart .headingPart {
+  gap: 0vw !important;
+}
+.setNewPwdFormPart .headingPart p:nth-child(2),
+.checkYourEmailPart .headingPart p:nth-child(2) {
+  font-size: var(--fs19) !important;
+  margin-top: 0.8rem;
+}
+.setNewPwdFormPart .headingPart .checkEmail,
+.checkYourEmailPart .headingPart .checkEmail {
+  color: #000 !important;
+  font-weight: 900 !important;
+  font-size: var(--fs21) !important;
+}
+.setNewPwdFormPart .headingPart .checkEmail {
+  margin-top: 0.5vw;
+}
+.setNewPwdFormPart .inputSection {
+  width: 40%;
+  margin: 3vw auto;
+}
+.setNewPwdFormPart .primaryBtn {
+  margin-top: 2rem;
+}
+.setNewPwdFormPart.inputSection .passwordInput {
+  position: relative;
+}
+.setNewPwdFormPart .inputSection .passwordInput button {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.setNewPwdFormPart .inputSection .passwordInput button img {
+  width: 100%;
+}
+.passwordSuccessPart {
+  width: 50%;
+  margin: 5vw auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  text-align: center;
+}
+.passwordSuccessPart .primaryBtn {
+  width: 60%;
+  min-width: fit-content;
+  /* margin-top: 2.5vw; */
+  margin-top: 2rem;
+}
+.passwordSuccessPart img {
+  width: 15%;
+}
+.passwordSuccessPart h3 {
+  font-size: var(--fs35);
+  font-weight: 900 !important;
+  font-family: Semi-Lufga;
+}
+.passwordSuccessPart p {
+  color: #808080ac;
+}
+
+/* .forgotScreenOne .contentPart .inputSection .passwordInput {
+  position: relative;
+}
+.forgotScreenOne .contentPart .inputSection .passwordInput button {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.forgotScreenOne .contentPart .inputSection .passwordInput button img {
+  width: 100%;
+} */
+
+@media screen and (max-width: 993px) {
+  .signUpScreen {
+    --fs15: var(--fs24);
+    --fs14: var(--fs25);
+    --fs20: var(--fs28);
+    --fs35: var(--fs40);
+  }
+  .loginScreen {
+    --fs15: var(--fs24);
+    --fs14: var(--fs25);
+    --fs20: var(--fs28);
+    --fs35: var(--fs40);
+  }
+
+  .otpScreen {
+    --fs15: var(--fs25);
+    --fs14: var(--fs26);
+    --fs20: var(--fs30);
+    --fs35: var(--fs45);
+  }
+
+  /* login screen */
+  .loginScreen .leftPart {
+    width: 40%;
+  }
+  .loginScreen .leftPart .imgPart {
+    width: 100%;
+  }
+  .loginScreen .leftPart .imgPart img {
+    width: 100%;
+  }
+  .loginScreen .rightPart {
+    width: 60%;
+  }
+  /* otp Screen */
+  .otpScreen .contentPart {
+    width: 70%;
+    margin: auto;
+  }
+  .otpScreen .contentPart .otpPart .otpInputSection .otpTopImg {
+    width: 40%;
+  }
+  .otpScreen .contentPart .otpPart .optionPart {
+    margin: 0;
+  }
+  /* forgot screen */
+  .forgotScreenOne.otpScreen .contentPart {
+    width: 70% !important;
+  }
+  .forgotScreenOne.otpScreen .handImgSection {
+    width: 70%;
+  }
+  .forgotScreenOne .forgotPwdFormPart {
+    width: 70%;
+  }
+  .setNewPwdFormPart .inputSection {
+    width: 70%;
+  }
+  .passwordSuccessPart {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 769px) {
+  .otpScreen .contentPart .otpPart .otpInputSection .otpTopImg {
+    width: 50%;
+    top: -10%;
+  }
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/Conceptvines Assets/32 X 32.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <main class="profileScreen">
+      <header>
+        <div class="header">
+          <div class="title d-flex align-center">
+            <h2 class="Open-Intelligence-Platform">
+              <a href="dashboard.html"> Open Intelligence Platform </a>
+            </h2>
+            <div class="select selectIndustry">
+              <div
+                class="d-flex align-center"
+                id="selectIndustryId"
+                onclick="handleIndustry()"
+              >
+                <p class="selectField">Select Industry</p>
+                <img
+                  src="./assets/images/Conceptvines Assets/dropdown.webp"
+                  alt="dropdown"
+                  class="dropdownImg selectDropdownImg"
+                />
+              </div>
+              <div class="selectInfo" id="industrySelect">
+                <p class="options industryOptions">Dev Ops</p>
+                <p class="options industryOptions">BPM & RPA</p>
+                <p class="options industryOptions">Cybersecurity</p>
+                <p class="options industryOptions">Data migration</p>
+                <p class="options industryOptions">AR & VR</p>
+              </div>
+            </div>
+          </div>
+          <div class="headerIcons d-flex align-center">
+            <div class="searchBoxPart headerSearch">
+              <input type="text" placeholder=" " />
+            </div>
+            <div class="notification">
+              <img
+                src="./assets/images/Conceptvines Assets/notification.webp"
+                alt="notification"
+                class="notificationImg"
+              />
+              <div class="notificationCount">
+                <span>6</span>
+              </div>
+            </div>
+            <span class="line"></span>
+            <div class="normalExport d-flex align-center">
+              <p class="notSelect switchInfo" id="normalLabel">Normal</p>
+              <label class="switch">
+                <input type="checkbox" checked onchange="toggleBtn(event)" />
+                <span class="slider round"></span>
+              </label>
+              <p class="switchInfo notSelect activeClass" id="expertLabel">
+                Expert
+              </p>
+            </div>
+            <div class="profile d-flex align-center">
+              <img
+                src="./assets/images/Conceptvines Assets/profile.webp"
+                alt="profile"
+                class="profileImg"
+              />
+              <img
+                src="./assets/images/Conceptvines Assets/dropdown.webp"
+                alt="dropdown"
+                class="dropdownImg"
+              />
+              <div class="profilePop" id="profilePop">
+                <p><a href="./profile.html">Profile</a></p>
+                <p><a href="./login.html">LogOut</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="conntentScreen">
+        <div class="leftPart">
+          <div class="profilePic">
+            <img src="assets/images/profile/profileImg.webp" alt="profile" />
+            <button>
+              <img src="assets/images/profile/Camera.webp" alt="camara" />
+            </button>
+          </div>
+          <div class="infoOne">
+            <p>member since <span>2021</span></p>
+            <p>3 Mutuals</p>
+          </div>
+          <hr class="dividerLine" />
+          <div class="infoTwo">
+            <button>
+              <img src="assets/images/profile/download.webp" alt="download" />
+              <p><span> 15 </span> downloads</p>
+            </button>
+            <button>
+              <img src="assets/images/profile/pin.webp" alt="pin" />
+              <p><span> 27 </span> pins</p>
+            </button>
+          </div>
+          <hr class="dividerLine" />
+          <div class="socialMedia">
+            <h3>social presence</h3>
+            <ul>
+              <li>
+                <a href="">
+                  <img
+                    src="assets/images/profile/linkedin_icon.webp"
+                    alt="linkedIn"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img
+                    src="assets/images/profile/github_icon.webp"
+                    alt="gitHub"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="rightPart">
+          <div class="personalPart">
+            <div class="namePart">
+              <div>
+                <h2>George Michael Williams</h2>
+                <a href="">
+                  <img
+                    src="assets/images/profile/location.webp"
+                    alt="location"
+                  />
+                  <span>New York NY</span>
+                </a>
+              </div>
+              <p>Data Scientist @ <span> Yes Bank</span></p>
+
+              <button class="editBtn">
+                <img src="assets/images/profile/edit.webp" alt="edit" /> edit
+              </button>
+            </div>
+            <div class="interestPart">
+              <h3>Area of interest</h3>
+              <ul>
+                <li>banking</li>
+                <li>Finance</li>
+                <li>insurance</li>
+                <li>Models</li>
+                <li>use cases</li>
+                <li>Customer Journey</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contactAndTech">
+            <div class="contactPart">
+              <div class="contactInfo">
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2">contact Information</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Phone:</td>
+                      <td class="telText">
+                        <a href="tel:1123 456 7890">+1123 456 7890</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td class="mailText">
+                        <a href="mailto:robertkrish@gmail.com"
+                          >robertkrish@gmail.com</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="basicInfo">
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2">basic Information</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Birthday:</td>
+                      <td class="telText">June 5,1992</td>
+                    </tr>
+                    <tr>
+                      <td>Gender:</td>
+                      <td class="telText">Male</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="techPart">
+              <h2>technology expertise</h2>
+              <ul>
+                <li>
+                  <p>
+                    <img
+                      src="assets/images/profile/aimodel.webp"
+                      alt="aiModal"
+                    />
+                    AI Models
+                  </p>
+                  <div class="outerDiv">
+                    <div class="innnerDiv percentage-50"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    <img
+                      src="assets/images/profile/datasetsdeactive.webp"
+                      alt="dataSet"
+                    />
+                    Data Sets
+                  </p>
+                  <div class="outerDiv">
+                    <div class="innnerDiv percentage-70"></div>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    <img
+                      src="assets/images/profile/generativeai.webp"
+                      alt="aiModal"
+                    />
+                    Generative AI
+                  </p>
+                  <div class="outerDiv">
+                    <div class="innnerDiv percentage-30"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="historyAndWork">
+            <div class="historyPart">
+              <div class="titlePart">
+                <h2>last signed hisstory</h2>
+                <p>last 3 logins</p>
+              </div>
+              <div class="listPart">
+                <ul>
+                  <li>12/06/2022-13:43</li>
+                  <li>11/06/2022-09:06</li>
+                  <li>18/06/2022-09:01</li>
+                </ul>
+              </div>
+            </div>
+            <div class="workExperince">
+              <table>
+                <thead>
+                  <tr>
+                    <th colspan="2">work Experience</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>company:</td>
+                    <td>yes bank</td>
+                  </tr>
+                  <tr>
+                    <td>job function:</td>
+                    <td>Data Scientist</td>
+                  </tr>
+                  <tr>
+                    <td>Domain:</td>
+                    <td>Banking and Finance services</td>
+                  </tr>
+                  <tr>
+                    <td>Experience:</td>
+                    <td>21 Apr 2022 - Till Date</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      function showSelectField(selectValue) {
+        const select = document.getElementById(selectValue);
+        select.classList.toggle("d-block");
+      }
+      function handleIndustry() {
+        showSelectField("industrySelect");
+      }
+      const industrySelectOption =
+        document.querySelectorAll(".industryOptions");
+      industrySelectOption.forEach((element) => {
+        element.addEventListener("click", (event) => {
+          const clickedOption = event.target.innerHTML;
+          const selectField = document.querySelector(".selectField");
+          selectField.innerHTML = clickedOption;
+          event.stopPropagation();
+          showSelectField("industrySelect");
+          // console.log(clickedOption);
+        });
+      });
+      const profile = document.querySelector(".profile");
+      const profilePop = document.getElementById("profilePop");
+      profile.addEventListener("click", (e) => {
+        e.stopPropagation();
+        profilePop.classList.toggle("d-block");
+      });
+      // toogle
+      function toggleBtn(event) {
+        var normalLabel = document.getElementById("normalLabel");
+        var expertLabel = document.getElementById("expertLabel");
+
+        if (event.target.checked) {
+          normalLabel.classList.remove("activeClass");
+          expertLabel.classList.add("activeClass");
+        } else {
+          expertLabel.classList.remove("activeClass");
+          normalLabel.classList.add("activeClass");
+        }
+      }
+      window.onclick = function (event) {
+        // console.log()
+        // if (!event.target.matches("#cvInfo")) {
+        //     cvInfo.classList.remove("d-block");
+        // }
+        // if (!event.target.matches("#moreInfo")) {
+        //     moreInfo.classList.remove("d-block");
+        // }
+        // if (!event.target.matches("#addNew")) {
+        //     addNew.classList.remove("d-block");
+        //     addNewFeaturs.style = "transform: rotate(0deg);"
+        // }
+        if (!event.target.matches("#profilePop")) {
+          profilePop.classList.remove("d-block");
+        }
+        if (!event.target.closest("#selectIndustryId")) {
+          document.getElementById("industrySelect").classList.remove("d-block");
+          // profilePop.classList.remove("displayBlock");
+        }
+        // if (!event.target.closest("#solutionPartnersId")) {
+        //     document.getElementById("solutionPatners").classList.remove("displayBlock");
+        //     // profilePop.classList.remove("displayBlock");
+        // }
+        // if (!event.target.closest("#industrySelect")) {
+        //     // profilePop.classList.remove("d-block");
+        //     // showSelectField("industrySelect");
+        //     // const select = document.getElementById("industrySelect");
+        //     // select.classList.remove("displayBlock");
+        // }
+      };
+    </script>
+  </body>
+</html>

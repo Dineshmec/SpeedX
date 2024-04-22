@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+  <div>
+    <h1>Instant International Transfer</h1>
+    <div class="mermaid" id="mermaidHolder"></div>
+  </div>
+  <div id="content">
+    <h1>Instant International Transfer Workflow</h1>
+    <table>
+      <tr>
+        <th>Steps</th>
+        <th>Action</th>
+        <th>Source Actors</th>
+        <th>Target Actor</th>
+        <th>Action Details</th>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td>Accessing the application</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client accesses the bank's application (mobile app or online banking portal)</td>
+        <td>Client's action to log</td>
+        <td>The bank's application interface loads</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Selecting the transfer initiation option</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client selects the option to initiate a transfer</td>
+        <td>Client's selection from the application menu.</td>
+        <td>Transfer options are displayed</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Choosing the type of transfer</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client chooses whether the transfer is domestic (within the same bank) or international.</td>
+        <td>Client's choice of transfer type.</td>
+        <td>Appropriate input fields</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Entering recipient’s banking details</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client enters the recipient's account details (account number, bank name, and routing number/SWIFT code for international transfers)</td>
+        <td>Recipient’s account details entered by the client.</td>
+        <td>System captures and displays</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>Entering transfer amount and comments</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client enters the transfer amount and optional comments or references</td>
+        <td>Amount of money to transfer</td>
+        <td>Details displayed for review.</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>Reviewing and confirming details</td>
+        <td>Client</td>
+        <td>Bank's application</td>
+        <td>The client reviews and confirms the transfer details.</td>
+        <td>Client's review of the entered information</td>
+        <td>Details are finalized and submitted for processing.</td>
+      </tr>
+      <tr>
+        <td>07</td>
+        <td>Validating account balance and limits</td>
+        <td>Bank's application</td>
+        <td>Core banking system</td>
+        <td>The bank's application validates the Client account balance and transfer limits</td>
+        <td>Client’s account information</td>
+        <td>Validation results; confirmation if the transfer is permissible or denial if not.</td>
+      </tr>
+      <tr>
+        <td>08</td>
+        <td>Integrating with payment systems</td>
+        <td>Bank's application</td>
+        <td>Payment gateway</td>
+        <td>The bank's application integrates with a payment gateway or correspondent bank network</td>
+        <td>Confirmed transaction details ready for external processing.</td>
+        <td>Transaction details are passed to the payment gateway</td>
+      </tr>
+      <tr>
+        <td>09</td>
+        <td>Debiting the account and transferring funds</td>
+        <td>Bank's application</td>
+        <td>Payment gateway</td>
+        <td>The Client account is debited, and the funds are transferred to the payment gateway or correspondent bank</td>
+        <td>Authorization</td>
+        <td>Client's account is debited</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Initiating the transfer to recipient’s bank</td>
+        <td>Payment gateway</td>
+        <td>Recipient's bank</td>
+        <td>The payment gateway or correspondent bank initiates the transfer to the recipient's bank based on the provided SWIFT code or routing details.</td>
+        <td>Funds and transfer instructions received from the originating bank.</td>
+        <td>Funds are transferred to the recipient's bank.</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Crediting the recipient's account</td>
+        <td>Recipient's bank</td>
+        <td>Recipient's account</td>
+        <td>Once the funds are received by the recipient's bank, the recipient's account is credited</td>
+        <td>Funds arrive at the recipient’s bank.</td>
+        <td>Recipient's account is credited</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Recording the transaction and displaying confirmation</td>
+        <td>Bank's application</td>
+        <td>Client</td>
+        <td>The transaction is recorded, and a confirmation is displayed to the Client</td>
+        <td>Transaction details and completion status</td>
+        <td>Confirmation message displayed to the client; transaction record updated.</td>
+      </tr>
+    </table>
+    
+    
+  </div>
+
+  <script>
+    // Helper function to load scripts dynamically
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', (e) => reject(e));
+        document.body.appendChild(script);
+      });
+    }
+
+    function initializeMermaid(markup) {
+      if (!window.mermaid) {
+        const mermaidScript = loadScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js'
+        );
+        mermaidScript.then(() => {
+          window.mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
+          renderMermaid(markup);
+        });
+      } else {
+        renderMermaid(markup);
+      }
+    }
+
+    function renderMermaid(markup) {
+      document.getElementById('mermaidHolder').innerHTML = markup;
+      window.mermaid.mermaidAPI.render('mermaidHolder', markup, () => {
+        // Callback function after rendering
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mermaidMarkup =`sequenceDiagram
+    participant C as Client
+    participant BA as Bank's Application
+    participant CBS as Core Banking System
+    participant PG as Payment Gateway
+    participant RB as Recipient's Bank
+    participant RA as Recipient's Account
+
+    C->>BA: Accessing the application
+    C->>BA: Selecting the transfer initiation option
+    C->>BA: Choosing the type of transfer
+    C->>BA: Entering recipient’s banking details
+    C->>BA: Entering transfer amount and comments
+    C->>BA: Reviewing and confirming details
+    BA->>CBS: Validating account balance and limits
+    BA->>PG: Integrating with payment systems
+    BA->>PG: Debiting the account and transferring funds
+    PG->>RB: Initiating the transfer to recipient’s bank
+    RB->>RA: Crediting the recipient's account
+    BA->>C: Recording the transaction and displaying confirmation
+
+
+`
+
+      initializeMermaid(mermaidMarkup);
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+    }
+  
+    table th,
+    table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+  
+    table th {
+      background-color: #f4f4f4;
+      text-align: left;
+    }
+  
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+  
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/LoginScript.js"></script>
+  </head>
+  <body>
+    <main class="loginScreen">
+      <div class="leftPart">
+        <div class="headingPart">
+          <h2>open intelligence</h2>
+          <h2>platform</h2>
+          <p>Make Your Own!</p>
+        </div>
+        <div class="imgPart">
+          <img src="assets/images/login/loginassets.webp" alt="loginassets" />
+        </div>
+        <div class="logoPart">
+          <img src="assets/images/login/logo.webp" alt="logo" />
+        </div>
+      </div>
+      <div class="rightPart">
+        <form id="loginForm">
+          <div class="headingPart">
+            <h2>Sign In</h2>
+            <p>New User ? <a href="signup.html"> Sign Up</a></p>
+          </div>
+          <div class="inputSection">
+            <div class="inputAndErrPart">
+              <input
+                class="input"
+                id="loginUserEmail"
+                type="email"
+                placeholder="Email Address"
+              />
+              <span class="error_show"></span>
+            </div>
+            <div class="inputAndErrPart passwordInput">
+              <input
+                class="input"
+                type="password"
+                id="loginUserPassword"
+                placeholder="Password"
+              />
+              <span class="error_show"></span>
+              <button
+                type="button"
+                id="hideShowBtn"
+                onclick="togglePasswordVisibility()"
+              >
+                <img src="./assets/images/login/eye.webp" alt="eyes" />
+              </button>
+            </div>
+            <div class="optionPart">
+              <div>
+                <input type="checkbox" name="" id="Remember" />
+                <label for="Remember">Remember Me</label>
+              </div>
+              <div class="forget">
+                <!-- <p><a href="#" id="forgotPasswordLink">Forget Your Password?</a> -->
+                  <p><a class="navigate" href="./forgot.html">Forget Your Password?</a></p>
+              </div>
+              
+            </div>
+            <!-- <a class="navigate" href="dashboard.html"> -->
+              <button
+              onclick="login(event)" 
+              type="button"
+              class="primaryBtn"
+              >
+              Log In
+              </button>
+            <!-- </a> -->
+            
+          </div>
+        </form>
+
+        <div class="allRightPart">
+          Copyrights &copy; Conceptvines Inc 2024. All Right Reserved.
+        </div>
+      </div>
+    </main>
+    <script>
+      
+    </script>
+  </body>
+</html>
