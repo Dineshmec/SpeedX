@@ -1,174 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignUp</title>
-    <link rel="stylesheet" href="assets/css/login.css" />
-    <script src="./assets/js/config.js"></script>
-  </head>
-  <body>
-    <main class="signUpScreen" id="signUpScreen">
-      <div class="contentPart">
-        <div class="headingPart">
-          <h2>Make Your Own!</h2>
-          <p>Join open intelligence platform</p>
-        </div>
-        <div class="signUpformPart">
-          <form id="signUpForm">
-            <div class="inputSection">
-              <div class="inputAndErrPart">
-                <input
-                  class="input"
-                  type="text"
-                  id="signUpUsername"
-                  placeholder="Email"
-                />
-                <span class="error_show"></span>
-              </div>
-              <!-- <div class="inputAndErrPart">
-                <input
-                  class="input"
-                  type="email"
-                  id="signUpUserEmail"
-                  placeholder="Work Email Address"
-                />
-                <span class="error_show"></span>
-              </div> -->
-              <div class="passwordInput inputAndErrPart">
-                <input
-                  class="input"
-                  type="password"
-                  id="signUpPasswordInput"
-                  placeholder="Password"
-                />
-                <span class="error_show"></span>
-                <button
-                  type="button"
-                  id="hideShowBtn"
-                  onclick="togglePasswordVisibility()"
-                >
-                  <img src="./assets/images/login/eye.webp" alt="eyes" />
-                </button>
-              </div>
-              <!-- <a class="navigate" href="otp.html"> -->
-              <!-- onclick="location.href = 'otp.html';" -->
-              <button
-                onclick="onSignInSumbitHandle(event)"
-                type="submit" 
-                class="primaryBtn"
-              >
-                Sign Up
-              </button>
-              <!-- </a> -->
-            </div>
-          </form>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignUp</title>
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/SignUp.js"></script>
+  <link rel="shortcut icon" href="./assets/images/Conceptvines Assets/32 X 32.png" type="image/x-icon" />
+</head>
+
+<body>
+  <main class="signUpScreen" id="signUpScreen">
+    <div class="contentPart">
+      <div class="headingPart">
+        <h2>Make Your Own!</h2>
+        <p>Join open intelligence platform</p>
       </div>
-      <div class="footerLogoPart">
+      <div class="signUpformPart">
+        <form id="signUpForm">
+          <div class="inputSection">
+            <div class="inputAndErrPart">
+              <input class="input" type="text" id="signUpUsername" placeholder="Username" />
+              <span class="error_show"></span>
+            </div>
+            
+            <div class="passwordInput inputAndErrPart">
+              <input class="input" type="password" id="signUpPasswordInput" placeholder="Password" />
+              <span class="error_show"></span>
+              <button type="button" id="hideShowBtn" onclick="togglePasswordVisibility()">
+                <img src="./assets/images/login/eye.webp" alt="eyes" />
+              </button>
+            </div>
+
+            <button onclick="onSignInSumbitHandle(event)" type="button" class="primaryBtn">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footerLogoPart">
+      <a href="login.html">
         <img class="logoImg" src="./assets/images/login/logo.webp" alt="logo" />
-        <img
-          class="cookImg"
-          src="./assets/images/signup/signupbg.webp"
-          alt="cook"
-        />
+      </a>
+      <img class="cookImg" src="./assets/images/signup/signupbg.webp" alt="cook" />
+    </div>
+  </main>
+  <main class="otpScreen" id="otpScreen">
+    <div class="contentPart">
+      <div class="headingPart">
+        <h2>A Message with a verification code has been sent to your</h2>
+        <h3 id="showEmailId">admin@company.com</h3>
+        <p>Enter the Code continue</p>
       </div>
-    </main>
-    <main class="otpScreen" id="otpScreen">
-      <div class="contentPart">
-        <div class="headingPart">
-          <h2>A Message with a verification code has been sent to your</h2>
-          <h3 id="showEmailId">admin@company.com</h3>
-          <p>Enter the Code continue</p>
-        </div>
-        <div class="otpPart">
-          <div class="otpInputSection">
-            <img
-              class="otpTopImg"
-              src="./assets/images/signup/otpbg1.webp"
-              alt="otpTopimg"
-            />
-            <div class="otpInputPart">
-              <div>
-                <div class="otp-container">
-                  <input
-                    type="number"
-                    maxlength="1"
-                    class="otp-input"
-                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    autofocus
-                  />
-                  <input
-                    type="number"
-                    maxlength="1"
-                    class="otp-input"
-                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  />
-                  <input
-                    type="number"
-                    maxlength="1"
-                    class="otp-input"
-                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  />
-                  <input
-                    type="number"
-                    maxlength="1"
-                    class="otp-input"
-                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  />
-                </div>
+      <div class="otpPart">
+        <div class="otpInputSection">
+          <img class="otpTopImg" src="./assets/images/signup/otpbg1.webp" alt="otpTopimg" />
+          <div class="otpInputPart">
+            <div>
+              <div class="otp-container">
+                <input type="number" maxlength="1" class="otp-input"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  autofocus />
+                <input type="number" maxlength="1" class="otp-input"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                <input type="number" maxlength="1" class="otp-input"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                <input type="number" maxlength="1" class="otp-input"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
               </div>
-              <label for="">enter the verification code</label>
             </div>
-            <img
-              class="otpBottomImg"
-              src="./assets/images/signup/otpbg2.webp"
-              alt="otpbottomimg"
-            />
-            <div class="optionPart">
-              <button class="editEmail" id="editEmail">
-                <img src="./assets/images/signup/edit.png" alt="edit" />
-                <p>Edit Email address</p>
+            <label for="">enter the verification code</label>
+          </div>
+          <img class="otpBottomImg" src="./assets/images/signup/otpbg2.webp" alt="otpbottomimg" />
+          <div class="optionPart">
+            <button class="editEmail" id="editEmail">
+              <img src="./assets/images/signup/edit.png" alt="edit" />
+              <p>Edit Email address</p>
+            </button>
+            <div class="timerPart">
+              <p id="timer"></p>
+              <button class="sendnew" onclick="startResendTimer()" id="resendBtn">
+                <img src="./assets/images/signup/refresh.png" alt="refresh" />
+                <p>Send New Code</p>
               </button>
-              <div class="timerPart">
-                <p id="timer"></p>
-                <button
-                  class="sendnew"
-                  onclick="startResendTimer()"
-                  id="resendBtn"
-                >
-                  <img src="./assets/images/signup/refresh.png" alt="refresh" />
-                  <p>Send New Code</p>
-                </button>
-              </div>
-              <!-- <button id="resendBtn" onclick="startResendTimer()">
-                Resend OTP
-              </button> -->
             </div>
           </div>
         </div>
       </div>
-      <div class="footerLogoPart">
+    </div>
+    <div class="footerLogoPart">
+      <a href="login.html">
         <img class="logoImg" src="./assets/images/login/logo.webp" alt="logo" />
+      </a>
+    </div>
+  </main>
+  <main class="successScreen" id="successScreen">
+    <div class="contentPart">
+      <div class="leftPart">
+        <img src="./assets/images/signup/sucessbg.webp" alt="image" />
       </div>
-    </main>
-    <main class="successScreen" id="successScreen">
-      <div class="contentPart">
-        <div class="leftPart">
-          <img src="./assets/images/signup/sucessbg.webp" alt="image" />
-        </div>
-        <div class="rightPart">
-          <img src="./assets/images/signup/congratsText.png" alt="congrats" />
-          <p>You Have Successfully registered your account</p>
-          <button onclick="location.href = 'login.html';" class="primaryBtn">
-            Log Into Account
-          </button>
-        </div>
+      <div class="rightPart">
+        <img src="./assets/images/signup/congratsText.png" alt="congrats" />
+        <p>You Have Successfully registered your account</p>
+        <button onclick="location.href = 'login.html';" class="primaryBtn">
+          Log Into Account
+        </button>
       </div>
-      <div class="footerLogoPart">
+    </div>
+    <div class="footerLogoPart">
+      <a href="login.html">
         <img src="./assets/images/login/logo.webp" alt="logo" />
-      </div>
-    </main>
-    <script src="./assets/js/SignUp.js"></script>
-  </body>
+      </a>
+    </div>
+  </main>
+  <script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("signUpPasswordInput");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          hideShowBtn.style.opacity = "0.5";
+        } else {
+          passwordInput.type = "password";
+          hideShowBtn.style.opacity = "1";
+        }
+      }
+
+      const signUpScreen = document.getElementById("signUpScreen");
+      const otpScreen = document.getElementById("otpScreen");
+      const successScreen = document.getElementById("successScreen");
+
+      const showEmailId = document.getElementById("showEmailId");
+      const editEmail = document.getElementById("editEmail");
+
+      // SignUp page form validations.
+      const signUpUsername = document.getElementById("signUpUsername");
+      const signUpPasswordInput = document.getElementById(
+        "signUpPasswordInput"
+      );
+
+      function onSignInSumbitHandle(eve) {
+        eve.preventDefault();
+        homeValidateInputs();
+      }
+
+      function setErrorMessage(input, error_message) {
+        // console.log("input", input);
+        const inputControl = input.parentElement;
+        const errorDisplay = inputControl.querySelector(".error_show");
+
+        errorDisplay.innerText = error_message;
+        inputControl.classList.add("error");
+        inputControl.classList.remove("clear");
+      }
+
+      function setSuccessMessage(input) {
+        // console.log("input", input);
+        const inputControl = input.parentElement;
+        const successDisplay = inputControl.querySelector(".error_show");
+
+        successDisplay.innerText = " ";
+        inputControl.classList.add("clear");
+        inputControl.classList.remove("error");
+      }
+
+      function isValidEmail(email) {
+        if (
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+          )
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function homeValidateInputs() {
+        // console.log("ok");
+        var signUpUsername_value = signUpUsername.value.trim();
+        var signUpPasswordInput_value = signUpPasswordInput.value.trim();
+
+        if (signUpUsername_value === "") {
+          setErrorMessage(signUpUsername, "Please Enter a Username");
+        } else {
+          setSuccessMessage(signUpUsername);
+        }
+
+      
+        if (signUpPasswordInput_value === "") {
+          setErrorMessage(signUpPasswordInput, "Please Enter a Password");
+        } else {
+          setSuccessMessage(signUpPasswordInput);
+        }
+
+        if (
+          signUpUsername_value &&
+          signUpPasswordInput_value
+        ) {
+          return fetch('http://127.0.0.1:5505/check_email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'email': signUpUsername_value }),
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Email already exists. Please use a different one.');
+      return response.json();
+    } else {
+      // If email check fails, proceed to send OTP
+      console.error('Failed to check email existence. Proceeding to send OTP.');
+      return fetch('http://127.0.0.1:5505/send_otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'email': signUpUsername_value }),
+      });
+    }
+  })
+  .then(response => {
+    if (response && response.ok) {
+      return response.json();
+    } else if (response) {
+      throw new Error('Failed to send OTP');
+    }
+  })
+  .then(data => {
+    if (data) {
+      // Display OTP screen and other actions
+      otpScreen.style.display = 'flex';
+      signUpScreen.style.display = 'none';
+      showEmailId.innerText = signUpUsername_value;
+      document.querySelectorAll('.otp-input')[0].focus();
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // Handle error (e.g., show error message to the user)
+  });
+          
+        }
+
+      }
+
+      let timer;
+      let countdown = 15;
+      function startResendTimer() {
+        document.getElementById("resendBtn").disabled = true;
+        timer = setInterval(updateTimer, 1000);
+      }
+      function updateTimer() {
+        const timerElement = document.getElementById("timer");
+        if (countdown > 0) {
+          timerElement.textContent = `${countdown} seconds`;
+          countdown--;
+        } else {
+          document.getElementById("resendBtn").disabled = false;
+          timerElement.textContent = "";
+          countdown = 15;
+          clearInterval(timer);
+        }
+      }
+      editEmail.addEventListener("click", () => {
+        const timerElement = document.getElementById("timer");
+        document.getElementById("resendBtn").disabled = false;
+        timerElement.textContent = "";
+        countdown = 15;
+        clearInterval(timer);
+
+        otpScreen.style.display = "none";
+        signUpScreen.style.display = "flex";
+      });
+      const otpInputs = document.querySelectorAll(".otp-input");
+      const refreshBtn = document.getElementById("resendBtn");
+
+      otpInputs.forEach((input, index) => {
+        input.addEventListener("input", (e) => {
+          if (e.inputType === "deleteContentBackward" && index > 0) {
+            otpInputs[index - 1].focus();
+          } else if (index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+          const allInputsFilled = Array.from(otpInputs).every(
+            (input) => input.value.trim() !== ""
+          );
+          if (allInputsFilled) {
+            // Gather OTP from inputs
+            const otp = Array.from(otpInputs).map((input) => input.value.trim()).join('');
+            var email = signUpUsername.value.trim();
+           
+            var password = signUpPasswordInput.value.trim();
+
+            // Make API call to validate OTP
+            fetch('http://127.0.0.1:5505/validate_otp', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ 'otp':otp,'email':email,'password':password }),
+            })
+              .then(response => {
+                if (response.ok) {
+                  return response.json();
+                } else {
+                  throw new Error('Failed to validate OTP');
+                }
+              })
+              .then(data => {
+                // Handle validation success (e.g., show success screen)
+                setTimeout(() => {
+                  otpScreen.style.display = "none";
+                  signUpScreen.style.display = "none";
+                  successScreen.style.display = "flex";
+                }, 1000);
+              })
+              .catch(error => {
+                console.error('Error validating OTP:', error);
+                // Handle validation error (e.g., show error message to the user)
+              });
+          }
+        });
+      });
+
+      refreshBtn.addEventListener("click", () => {
+        otpInputs.forEach((input, index) => {
+          input.value = "";
+        });
+      });
+
+      function checkEmailExists(email) {
+  return fetch('http://127.0.0.1:5505/check_email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'email': email }),
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to check email existence');
+    }
+  })
+}
+
+  </script>
+</body>
+
 </html>
