@@ -32,8 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function displayContext1(UCID){
           
           console.log(UCID);
-          const context = document.querySelector('.context');
-          context.innerHTML = '';
           const iframe=document.getElementById('iframe');
           const visit=document.getElementById('visit');
           iframe.setAttribute('src',`${Appconfig.LOCALHOST}:${Appconfig.WEB_RUN_PORT}/iframe/${UCID}.html`);

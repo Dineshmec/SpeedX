@@ -149,3 +149,9 @@ function homeValidateInputs() {
     // showEmailId.innerText = signUpUserEmail_value;
   }
 }
+
+function forgetPageHandle() {
+  location.href = "forgot.html";
+  // forgetScreenId.classList.add("d-block");
+  // loginScreenId.classList.add("d-none");
+}

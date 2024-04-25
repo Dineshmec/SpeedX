@@ -148,7 +148,7 @@ def add_user():
     email = request.json.get('email')
     password = request.json.get('password')
 
-    if not email or not password or not work_email:
+    if not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
     # Check if the user already exists

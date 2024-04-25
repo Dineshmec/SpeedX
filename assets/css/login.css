@@ -148,7 +148,7 @@ input[type="password"]::-webkit-input-placeholder {
   content: "";
   position: absolute;
   display: none;
-  left: 4px;
+  left: 3px;
   top: 3px;
   width: 12px;
   height: 12px;
@@ -232,26 +232,26 @@ body {
   width: 100%;
   height: 100vh;
   display: flex;
-
+  justify-content: space-between;
+  position: relative;
   background-color: #ffffff;
+  z-index: 1;
 }
 .loginScreen .leftPart {
   width: 50%;
   padding: 5vw;
   padding-bottom: 2vw;
-  height: 100%;
+  /* height: 80%; */
+  height: 90%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-end;
+  /* justify-content: space-between; */
 }
 .loginScreen .rightPart {
-  width: 50%;
-  padding: 5vw;
-  background-color: #fafafa;
+  width: 45%;
+  padding: 5vw 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  align-items: flex-end;
 }
 
 .loginScreen .leftPart .headingPart h2 {
@@ -272,8 +272,11 @@ body {
   width: 100%;
 }
 .loginScreen .leftPart .logoPart {
-  width: 20%;
+  width: 10%;
   display: flex;
+  position: absolute;
+  top: 5%;
+  right: 5%;
 }
 .loginScreen .leftPart .logoPart img {
   width: 100%;
@@ -281,7 +284,11 @@ body {
 
 .loginScreen .rightPart form {
   width: 70%;
-  margin: auto;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  /* margin-top: 10vw; */
+  margin-bottom: 2.5rem;
+  /* border: 1px solid red; */
 }
 .loginScreen .rightPart form .headingPart {
   display: flex;
@@ -314,10 +321,15 @@ body {
 }
 .loginScreen .rightPart form .inputSection div .input {
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
   font-size: var(--fs20);
   background-color: transparent;
-  border: 1px solid gray;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+}
+.loginScreen .rightPart form .inputSection div .input::placeholder {
+  color: #333333;
+  font-weight: 500;
 }
 .loginScreen .rightPart form .inputSection .passwordInput {
   position: relative;
@@ -370,11 +382,13 @@ body {
 
 .loginScreen .allRightPart {
   position: absolute;
+  left: 5%;
   bottom: 2vw;
-  width: 100%;
-  text-align: center;
-  font-size: var(--fs20);
+  width: fit-content;
+  text-align: left;
+  font-size: var(--fs18);
   opacity: 0.6;
+  /* border: 1px solid red; */
 }
 
 .cursorPointer {
@@ -913,7 +927,48 @@ body {
 .forgotScreenOne .contentPart .inputSection .passwordInput button img {
   width: 100%;
 } */
-
+/* svg animation */
+.dialLableBox,
+.polygonSvg,
+.bg-gray-line {
+  display: none;
+}
+.svgAnimationPart {
+  /* border: 1px solid red; */
+  position: absolute;
+  /* top: 0%; */
+  /* left: 10%; */
+  /* width: 170% !important; */
+  /* border: 1px solid blue; */
+  /* width: 75% !important; */
+  width: 85% !important;
+  margin-bottom: 1vw;
+  z-index: -1;
+  /* top: -3%;
+  left: 10%; */
+  /* transform: translate(-50%); */
+}
+.svgHeadingPart {
+  /* position: absolute;
+  top: 60%; */
+  width: 100%;
+  /* border: 1px solid red; */
+}
+.svgHeadingPart h2:nth-child(1) {
+  font-size: var(--fs70) !important;
+  font-family: "Semi-Lufga";
+  font-weight: 900;
+}
+.svgHeadingPart h2:nth-child(2) {
+  color: #333333 !important;
+  font-size: var(--fs35) !important;
+  font-family: "Semi-Lufga";
+  font-weight: 100;
+  margin-bottom: 1.5vw;
+}
+.svgHeadingPart p {
+  font-size: var(--fs22) !important;
+}
 @media screen and (max-width: 993px) {
   .signUpScreen {
     --fs15: var(--fs24);
@@ -938,6 +993,8 @@ body {
   /* login screen */
   .loginScreen .leftPart {
     width: 40%;
+    /* height: ; */
+    /* position: relative; */
   }
   .loginScreen .leftPart .imgPart {
     width: 100%;
@@ -946,7 +1003,21 @@ body {
     width: 100%;
   }
   .loginScreen .rightPart {
-    width: 60%;
+    width: 50%;
+    margin-left: auto;
+  }
+  .svgAnimationPart {
+    /* border: 1px solid red; */
+
+    /* top: 0%; */
+    /* left: 10%; */
+    left: 5%;
+    /* width: 170% !important; */
+    /* border: 1px solid blue; */
+
+    /* top: -3%;
+  left: 10%; */
+    /* transform: translate(-50%); */
   }
   /* otp Screen */
   .otpScreen .contentPart {
@@ -980,5 +1051,10 @@ body {
   .otpScreen .contentPart .otpPart .otpInputSection .otpTopImg {
     width: 50%;
     top: -10%;
+  }
+  .svgAnimationPart {
+    width: 70% !important;
+    left: 10%;
+    top: 30%;
   }
 }
