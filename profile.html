@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="assets/css/profile.css" />
     <link
       rel="shortcut icon"
       href="./assets/images/Conceptvines Assets/32 X 32.png"
       type="image/x-icon"
     />
+    <!-- <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="assets/css/cdn/select2.min.css" />
+    <link rel="stylesheet" href="assets/css/cdn/flatpickr.min.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    /> -->
+    <link rel="stylesheet" href="assets/css/profile.css" />
   </head>
 
   <body>
@@ -86,11 +96,11 @@
           </div>
         </div>
       </header>
-      <section class="conntentScreen">
+      <section class="conntentScreen d-flex" data-profileScreen>
         <div class="leftPart">
           <div class="profilePic">
             <img src="assets/images/profile/profileImg.webp" alt="profile" />
-            <button>
+            <button type="button">
               <img src="assets/images/profile/Camera.webp" alt="camara" />
             </button>
           </div>
@@ -100,11 +110,11 @@
           </div>
           <hr class="dividerLine" />
           <div class="infoTwo">
-            <button>
+            <button type="button">
               <img src="assets/images/profile/download.webp" alt="download" />
               <p><span> 15 </span> downloads</p>
             </button>
-            <button>
+            <button type="button">
               <img src="assets/images/profile/pin.webp" alt="pin" />
               <p><span> 27 </span> pins</p>
             </button>
@@ -147,7 +157,7 @@
               </div>
               <p>Data Scientist @ <span> Yes Bank</span></p>
 
-              <button class="editBtn">
+              <button type="button" class="editBtn" onclick="navEditScreen()">
                 <img src="assets/images/profile/edit.webp" alt="edit" /> edit
               </button>
             </div>
@@ -258,7 +268,7 @@
           <div class="historyAndWork">
             <div class="historyPart">
               <div class="titlePart">
-                <h2>last signed hisstory</h2>
+                <h2>last signed history</h2>
                 <p>last 3 logins</p>
               </div>
               <div class="listPart">
@@ -299,76 +309,452 @@
           </div>
         </div>
       </section>
-    </main>
-    <script>
-      function showSelectField(selectValue) {
-        const select = document.getElementById(selectValue);
-        select.classList.toggle("d-block");
-      }
-      function handleIndustry() {
-        showSelectField("industrySelect");
-      }
-      const industrySelectOption =
-        document.querySelectorAll(".industryOptions");
-      industrySelectOption.forEach((element) => {
-        element.addEventListener("click", (event) => {
-          const clickedOption = event.target.innerHTML;
-          const selectField = document.querySelector(".selectField");
-          selectField.innerHTML = clickedOption;
-          event.stopPropagation();
-          showSelectField("industrySelect");
-          // console.log(clickedOption);
-        });
-      });
-      const profile = document.querySelector(".profile");
-      const profilePop = document.getElementById("profilePop");
-      profile.addEventListener("click", (e) => {
-        e.stopPropagation();
-        profilePop.classList.toggle("d-block");
-      });
-      // toogle
-      function toggleBtn(event) {
-        var normalLabel = document.getElementById("normalLabel");
-        var expertLabel = document.getElementById("expertLabel");
+      <section class="conntentScreen d-none" data-editScreen>
+        <div class="leftPart">
+          <div class="profilePic inputAndErrPart">
+            <img
+              src="assets/images/profile/edit/defaultimg.webp"
+              alt="profile"
+              id="showProfile"
+            />
+            <input
+              type="file"
+              id="upload-input"
+              class="d-none"
+              accept="image/*"
+              data-file-input
+              data-input-name="Image"
+            />
+            <button type="button">
+              <label for="upload-input">
+                <img src="assets/images/profile/Camera.webp" alt="camara" />
+              </label>
+            </button>
+            <span class="error_show"></span>
+          </div>
+        </div>
+        <div class="rightPart">
+          <form action="">
+            <div class="personalPart">
+              <div class="namePart">
+                <div>
+                  <h2>Welcome!</h2>
+                </div>
+                <button
+                  type="button"
+                  class="editBtn"
+                  onclick="navProfileScreen()"
+                >
+                  <img
+                    src="assets/images/profile/edit/reset.webp"
+                    alt="refresh"
+                  />
+                  reset
+                </button>
+              </div>
+              <div class="inputSection">
+                <div class="inSection1">
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input textInput"
+                      id="userName"
+                      type="text"
+                      value="George Minchael Williams"
+                      placeholder="Name"
+                      data-text-input
+                      data-validation-type="text"
+                      data-input-name="Name"
+                    />
+                    <!-- <label for="userName">Name</label> -->
+                    <span class="error_show"></span>
+                  </div>
+                </div>
+                <div class="inSection2">
+                  <div class="inputAndErrPart">
+                    <label class="selectLabel" for="industrySelectBox"
+                      >select your industry</label
+                    >
+                    <select
+                      id="industrySelectBox"
+                      class="customSelectOption"
+                      data-select-input
+                      data-input-name="Industry"
+                    >
+                      <option hidden selected disabled value=" ">
+                        Please Select Industry
+                      </option>
+                      <option value="DevOps">Dev Ops</option>
+                      <option value="BPM&RPA">BPM & RPA</option>
+                      <option value="Cybersecurity">Cybersecurity</option>
+                      <option value="Data migration">Data migration</option>
+                      <option value="AR&VR">AR & VR</option>
+                    </select>
+                    <span class="error_show"></span>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <label class="selectLabel" for="roleSelectBox"
+                      >select your role</label
+                    >
+                    <select
+                      id="roleSelectBox"
+                      class="customSelectOption"
+                      data-select-input
+                      data-input-name="Role"
+                    >
+                      <option hidden selected disabled value=" ">
+                        Please Select Role
+                      </option>
+                      <option value="Data Scientist">Data Scientist</option>
+                      <option value="Front End">Front End</option>
+                      <option value="Back End">Back End</option>
+                      <option value="FullStack">FullStack</option>
+                    </select>
+                    <span class="error_show"></span>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input textInput"
+                      id="companyName"
+                      type="text"
+                      placeholder=" "
+                      data-text-input
+                      data-validation-type="text"
+                      data-input-name="Company Name"
+                    />
+                    <span class="error_show"></span>
+                    <label class="label" for="companyName"
+                      >Your Company Name</label
+                    >
+                  </div>
+                </div>
+                <hr class="dividerDot" />
+                <div class="inSection3">
+                  <div class="titlePart">
+                    <h3>Personal Information</h3>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input dateInput brithdayDateInput"
+                      id="brithdayDateInput"
+                      type="date"
+                      placeholder=" "
+                      data-text-input
+                      data-validation-type="date"
+                      data-input-name="Brithday Date"
+                    />
+                    <span class="error_show"></span>
+                    <label class="label" for="brithdayDateInput"
+                      >Brithday</label
+                    >
+                  </div>
+                  <div class="inputAndErrPart">
+                    <label class="selectLabel" for="genderSelectBox"
+                      >Gender</label
+                    >
+                    <select
+                      id="genderSelectBox"
+                      class="customSelectOption"
+                      data-select-input
+                      data-input-name="Gender"
+                    >
+                      <option hidden selected disabled value=" ">
+                        Please Select Gender
+                      </option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                    <span class="error_show"></span>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input locationInput"
+                      id="location"
+                      type="text"
+                      placeholder=" "
+                      data-text-input
+                      data-validation-type="text"
+                      data-input-name="Location"
+                    />
+                    <button
+                      type="button"
+                      class="locationBtn"
+                      id="getLocationButton"
+                    >
+                      <img
+                        src="assets/images/profile/edit/location.webp"
+                        alt="location"
+                      />
+                    </button>
+                    <span class="error_show"></span>
+                    <label class="label" for="location"> location</label>
+                  </div>
+                </div>
+                <hr class="dividerDot" />
+                <div class="inSection3">
+                  <div class="titlePart">
+                    <h3>Contact Information</h3>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input textInput"
+                      id="userNumber"
+                      type="number"
+                      placeholder=" "
+                      data-text-input
+                      data-validation-type="phoneNumber"
+                      data-input-name="Phone Number"
+                    />
+                    <span class="error_show"></span>
+                    <label class="label" for="userNumber">Phone</label>
+                  </div>
+                  <div class="inputAndErrPart">
+                    <input
+                      class="input textInput"
+                      id="userEmail"
+                      type="text"
+                      value="robertkrish@gmail.com"
+                      placeholder=" "
+                      readonly
+                      data-text-input
+                      data-validation-type="email"
+                      data-input-name="Email"
+                    />
+                    <span class="error_show"></span>
+                    <label class="label" for="userEmail">Email</label>
+                  </div>
+                </div>
+                <hr class="dividerDot" />
+                <div class="inSection3">
+                  <div class="titlePart">
+                    <h3>Work Experience</h3>
+                  </div>
+                  <div class="dynamicInputWrapper">
+                    <div class="dynamicInputSection" data-group-id="1">
+                      <div class="inputAndErrPart">
+                        <label class="selectLabel" for="workRoleSelectBox"
+                          >Role</label
+                        >
+                        <select
+                          id="workRoleSelectBox"
+                          class="customSelectOption"
+                          data-select-input
+                          data-input-name="Role"
+                          data-formate="array"
+                        >
+                          <option hidden selected disabled value=" ">
+                            Please Select Role
+                          </option>
+                          <option value="Data Scientist">Data Scientist</option>
+                          <option value="Front End">Front End</option>
+                          <option value="Back End">Back End</option>
+                          <option value="FullStack">FullStack</option>
+                        </select>
+                        <span class="error_show"></span>
+                      </div>
+                      <div class="inputAndErrPart">
+                        <input
+                          class="input textInput"
+                          id="workDomain1"
+                          type="text"
+                          placeholder=" "
+                          data-text-input
+                          data-input-name="Domain"
+                          data-validation-type="text"
+                          data-formate="array"
+                        />
+                        <span class="error_show"></span>
+                        <label class="label" for="workDomain1">Domain</label>
+                      </div>
+                      <div class="inputAndErrPart">
+                        <input
+                          class="input textInput"
+                          id="workCompany"
+                          type="text"
+                          placeholder=" "
+                          data-text-input
+                          data-input-name="Company"
+                          data-validation-type="text"
+                          data-formate="array"
+                        />
+                        <span class="error_show"></span>
+                        <label class="label" for="workCompany">company</label>
+                      </div>
+                      <div class="inputAndErrPart">
+                        <input
+                          class="input dateInput workDateInput"
+                          id="workDateInput1"
+                          type="date"
+                          placeholder=" "
+                          data-text-input
+                          data-input-name="Experience"
+                          data-validation-type="date"
+                          data-formate="array"
+                        />
+                        <span class="error_show"></span>
+                        <label class="label" for="workDateInput1"
+                          >Experience</label
+                        >
+                      </div>
+                    </div>
+                  </div>
 
-        if (event.target.checked) {
-          normalLabel.classList.remove("activeClass");
-          expertLabel.classList.add("activeClass");
-        } else {
-          expertLabel.classList.remove("activeClass");
-          normalLabel.classList.add("activeClass");
-        }
-      }
-      window.onclick = function (event) {
-        // console.log()
-        // if (!event.target.matches("#cvInfo")) {
-        //     cvInfo.classList.remove("d-block");
-        // }
-        // if (!event.target.matches("#moreInfo")) {
-        //     moreInfo.classList.remove("d-block");
-        // }
-        // if (!event.target.matches("#addNew")) {
-        //     addNew.classList.remove("d-block");
-        //     addNewFeaturs.style = "transform: rotate(0deg);"
-        // }
-        if (!event.target.matches("#profilePop")) {
-          profilePop.classList.remove("d-block");
-        }
-        if (!event.target.closest("#selectIndustryId")) {
-          document.getElementById("industrySelect").classList.remove("d-block");
-          // profilePop.classList.remove("displayBlock");
-        }
-        // if (!event.target.closest("#solutionPartnersId")) {
-        //     document.getElementById("solutionPatners").classList.remove("displayBlock");
-        //     // profilePop.classList.remove("displayBlock");
-        // }
-        // if (!event.target.closest("#industrySelect")) {
-        //     // profilePop.classList.remove("d-block");
-        //     // showSelectField("industrySelect");
-        //     // const select = document.getElementById("industrySelect");
-        //     // select.classList.remove("displayBlock");
-        // }
-      };
-    </script>
+                  <button
+                    type="button"
+                    id="addSelect"
+                    class="addBtn"
+                    data-work-experience
+                  >
+                    + Add
+                  </button>
+                </div>
+                <hr class="dividerDot" />
+                <div class="inSection3">
+                  <div class="titlePart">
+                    <h3>Select your technology expertise</h3>
+                  </div>
+                  <ul class="selectSkillsPart">
+                    <li>
+                      <label for="aiModels"
+                        >Ai models
+                        <input
+                          type="checkbox"
+                          class="skillsSelectCheckbox"
+                          id="aiModels"
+                          data-img-src="aimodel.webp"
+                          data-title-text="AI Models"
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label for="solutions"
+                        >solutions
+                        <input
+                          type="checkbox"
+                          class="skillsSelectCheckbox"
+                          id="solutions"
+                          data-img-src="generativeai.webp"
+                          data-title-text="Solutions"
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label for="dataSets"
+                        >data sets
+                        <input
+                          type="checkbox"
+                          class="skillsSelectCheckbox"
+                          id="dataSets"
+                          data-img-src="datasets.webp"
+                          data-title-text="Date sets"
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label for="userCases"
+                        >use cases
+                        <input
+                          type="checkbox"
+                          class="skillsSelectCheckbox"
+                          id="userCases"
+                          data-img-src="aimodel.webp"
+                          data-title-text="Use Cases"
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label for="generativeai"
+                        >Generative AI
+                        <input
+                          type="checkbox"
+                          class="skillsSelectCheckbox"
+                          id="generativeai"
+                          data-title-text="Generative AI"
+                          data-img-src="generativeai.webp"
+                        />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  data-skillLevelSection
+                  class="inSection3 skillLevelSection"
+                >
+                  <!-- <div class="skillLevelPart">
+                    <div class="skillTitle">
+                      <img
+                        src="assets/images/profile/edit/aimodel.webp"
+                        alt="aimodel"
+                      />
+                      <p>AI models</p>
+                    </div>
+                    <input type="range" min="1" max="100" />
+                  </div>
+                  <div class="skillLevelPart">
+                    <div class="skillTitle">
+                      <img
+                        src="assets/images/profile/edit/datasets.webp"
+                        alt="datasets"
+                      />
+                      <p>Data Sets</p>
+                    </div>
+                    <input class="rangeInputs" type="range" min="0" />
+                  </div>
+                  <div class="skillLevelPart">
+                    <div class="skillTitle">
+                      <img
+                        src="assets/images/profile/edit/generativeai.webp"
+                        alt="generativeai"
+                      />
+                      <p>Generative AI</p>
+                    </div>
+                    <input class="rangeInputs" type="range" min="0" />
+                  </div> -->
+                </div>
+                <hr class="dividerDot" />
+                <div class="inSection3">
+                  <div class="titlePart">
+                    <h3>social presence</h3>
+                  </div>
+                  <div class="linkAddPart">
+                    <div class="inputAndErrPart">
+                      <input
+                        type="text"
+                        id="textInput"
+                        class="input"
+                        placeholder="Enter social URL"
+                      />
+                      <button class="addBtn" type="button" onclick="addChip()">
+                        <img
+                          src="assets/images/profile/edit/add.webp"
+                          alt="add"
+                        />
+                      </button>
+                    </div>
+                    <div class="chipsContainer" id="chipsContainer"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="btnSection">
+                <button type="button" class="secondryBtn">Cancel</button>
+                <button
+                  type="button"
+                  class="primaryBtn"
+                  onclick="onProfileSumbitHandle(event)"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> -->
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/profile.js"></script>
   </body>
 </html>

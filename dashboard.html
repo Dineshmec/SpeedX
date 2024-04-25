@@ -162,8 +162,9 @@
               <p class="menuInfo">Datasets</p>
             </div>
           </a>
+          
           <a href="#" onclick="toggleContent('solutions');">
-            <div class="menuCard">
+            <div class="menuCard" data-close-btn>
               <img
                 src="./assets/images/Conceptvines Assets/Menu/solutionactive.webp"
                 alt="solutionactive"
@@ -172,6 +173,7 @@
               <p class="activeMenu">Solutions</p>
             </div>
           </a>
+
           <div class="menuCard">
             <img
               src="./assets/images/Conceptvines Assets/Menu/learnactive.webp"
@@ -190,13 +192,13 @@
 
             <div class="moreInfo" id="moreInfo">
               <div class="cvImageInfo d-flex align-center cvField">
-                <div class="addCompany">
-                  <p>Documentation</p>
+                <div class="addCompany" id="applcationNavigation">
+                  <p>Application</p>
                 </div>
               </div>
               <div class="addCompany d-flex align-center cvField">
-                <div class="addCompany">
-                  <p>Progression</p>
+                <div class="addCompany" id="solutionNavigation">
+                  <p>Solution Partners</p>
                 </div>
               </div>
               <div class="addCompany d-flex align-center cvField">
@@ -239,134 +241,6 @@
           </div>
         </div>
         <div class="mainInfo">
-          <div class="iconHeader d-flex justify-between align-center">
-            <div class="topCvIcons d-flex">
-              <div
-                class="topCvIcon d-flex flex-col align-center"
-                onclick="handleMain('app radar')"
-              >
-                <div class="outerDiv">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/Conceptvines Assets/appradar_active.webp"
-                      alt="AISDLC_deactive"
-                      class="topIcon"
-                    />
-                    <img
-                      src="./assets/images/Conceptvines Assets/1/appradar.webp"
-                      alt="appradar_deactive"
-                      class="topIcon2"
-                    />
-                  </div>
-                </div>
-                <p class="iconTxt">App Radar</p>
-              </div>
-              <div
-                class="topCvIcon d-flex flex-col align-center"
-                onclick="handleMain('AISDLC')"
-              >
-                <div class="outerDiv">
-                  <div class="icon iconActive">
-                    <img
-                      src="./assets/images/Conceptvines Assets/1/AISDLC.webp"
-                      alt="AISDLC_deactive"
-                      class="topIcon"
-                    />
-                    <img
-                      src="./assets/images/Conceptvines Assets/AISDLC_active.webp"
-                      alt="AISDLC_deactive"
-                      class="topIcon2 d-block"
-                    />
-                  </div>
-                </div>
-                <p class="iconTxt">AI SDLC</p>
-              </div>
-              <div
-                class="topCvIcon d-flex flex-col align-center"
-                onclick="handleMain('aI under writing')"
-              >
-                <div class="outerDiv">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/Conceptvines Assets/AIunderwriting_active.webp"
-                      alt="AIunderwriting_deactive"
-                      class="topIcon"
-                    />
-                    <img
-                      src="./assets/images/Conceptvines Assets/1/AIunderwriting.webp"
-                      alt="AIunderwriting_deactive"
-                      class="topIcon2"
-                    />
-                  </div>
-                </div>
-                <p class="iconTxt">AI Under Writing</p>
-              </div>
-              <div
-                class="topCvIcon d-flex flex-col align-center"
-                onclick="handleMain('simulator')"
-              >
-                <div class="outerDiv">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/Conceptvines Assets/simulator_active.webp"
-                      alt="simulator_deactive"
-                      class="topIcon"
-                    />
-                    <img
-                      src="./assets/images/Conceptvines Assets/1/simulator.webp"
-                      alt="simulator_deactive"
-                      class="topIcon2"
-                    />
-                  </div>
-                </div>
-                <p class="iconTxt">Simulator</p>
-              </div>
-              <div
-                class="topCvIcon d-flex flex-col align-center"
-                onclick="handleMain('sand box')"
-              >
-                <div class="outerDiv">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/Conceptvines Assets/sandbox_active.webp"
-                      alt="sandbox_deactive"
-                      class="topIcon"
-                    />
-                    <img
-                      src="./assets/images/Conceptvines Assets/1/sandbox.webp"
-                      alt="sandbox_deactive"
-                      class="topIcon2"
-                    />
-                  </div>
-                </div>
-                <p class="iconTxt">Sand Box</p>
-              </div>
-            </div>
-            <div class="select solutionPatners">
-              <div
-                class="d-flex align-center p-relative"
-                id="solutionPartnersId"
-                onclick="handleSolutionPartners()"
-              >
-                <p class="selectField partnerField">Solution Partners</p>
-                <img
-                  src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                  alt="dropdown"
-                  class="downArrowBlack"
-                />
-                <p class="partnerName"></p>
-              </div>
-              <div class="selectInfo partnerSelect" id="solutionPatners">
-                <p class="options solutionPatnerOption">Cognext</p>
-                <p class="options solutionPatnerOption">Giggso</p>
-                <p class="options solutionPatnerOption">KYG Trade</p>
-                <p class="options solutionPatnerOption">Modjoul</p>
-                <p class="options solutionPatnerOption">Antworks</p>
-                <p class="options solutionPatnerOption">Sriya.AI</p>
-                <p class="options solutionPatnerOption">Vee 24</p>
-              </div>
-            </div>
-          </div>
           <div class="infoContainer">
             <div class="searchAndFunctions d-flex justify-between align-center">
               <div class="searchBoxPart">
@@ -406,7 +280,470 @@
                 </div>
               </div>
             </div>
-            <div id="main" style="display: block;" class="contentToggle">
+            <!-- Solutions -->
+            <div id="solutions" style="display: block;" class="contentToggle">
+              <div class="dropDownAndInformation">
+                <div class="dropDownAccordian">
+
+                  <div class="accordion-item">
+                    <p class="accordion-button">
+                      <span
+                        ><img
+                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
+                          alt="patnerarrow"
+                          class="patnerarrow"
+                      /></span>
+                      <span class="partnerAccName" id="usecases1">Usecases</span>
+                    </p>
+                    <div class="accordion">
+                      <ul id="useCasesList1">
+                      </ul>
+                    </div>
+                  </div>     
+  
+                  <div class="accordion-item">
+                    <p class="accordion-button">
+                      <span
+                        ><img
+                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
+                          alt="patnerarrow"
+                          class="patnerarrow"
+                      /></span>
+                      <span class="partnerAccName">Features</span>
+                    </p>
+                    <div class="accordion">
+                      <ul>
+                        <li><span class="features">Features</span> 1</li>
+                        <li><span class="features">Features</span> 2</li>
+                        <li><span class="features">Features</span> 3</li>
+                        <li><span class="features">Features</span> 4</li>
+                      </ul>
+                    </div>
+                  </div>
+  
+                  <div class="accordion-item">
+                    <p class="accordion-button">
+                      <span
+                        ><img
+                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
+                          alt="patnerarrow"
+                          class="patnerarrow"
+                      /></span>
+                      <span class="partnerAccName">Models</span>
+                    </p>
+                    <div class="accordion">
+                      <ul>
+                        <li><span class="models">Models</span> 1</li>
+                        <li><span class="models">Models</span> 2</li>
+                        <li><span class="models">Models</span> 3</li>
+                        <li><span class="models">Models</span> 4</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="Information1">
+                  
+                  <a id="visit" target="_blank">visit</a>
+                  <iframe id="iframe" height="100%" width="100%" style="border:none"></iframe>
+                  <div class="pinPopup d-flex justify-between align-center">
+                    <div class="zoomSection d-flex align-center">
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/expand.webp"
+                          alt="expand"
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <span class="zoomPersentage" data-zoomPersentage
+                          >100%</span
+                        >
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/add.webp"
+                          alt="add"
+                          id="zoomin"
+                          data-zoom-in
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/minus.webp"
+                          alt="minus"
+                          id="zoomout"
+                          data-zoom-out
+                        />
+                      </div>
+                    </div>
+                    <div class="pinDownloadSection d-flex align-center">
+                      <div
+                        class="pinIcon"
+                        id="addPinBtn"
+                        data-addPinBtn
+                        pin-section-name="Transactional"
+                      >
+                        <img
+                          src="./assets/images/Conceptvines Assets/pin.webp"
+                          alt="pin"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/edit.webp"
+                          alt="edit"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/download.webp"
+                          alt="download"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="pinPopup d-flex justify-between align-center">
+                    <div class="zoomSection d-flex align-center">
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/expand.webp"
+                          alt="expand"
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <span class="zoomPersentage">100%</span>
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/add.webp"
+                          alt="add"
+                          id="zoomin"
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/minus.webp"
+                          alt="minus"
+                          id="zoomout"
+                        />
+                      </div>
+                    </div>
+                    <div class="pinDownloadSection d-flex align-center">
+                      <div
+                        class="pinIcon"
+                        id="addPinBtn"
+                        pin-section-name="Transactional"
+                      >
+                        <img
+                          src="./assets/images/Conceptvines Assets/pin.webp"
+                          alt="pin"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/edit.webp"
+                          alt="edit"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/download.webp"
+                          alt="download"
+                        />
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="iconViewPart">
+                  <div class="sideMenuPart">
+                    <div class="topCvIcons d-flex" id="applicationSidebar">
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon iconActive" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/appradar_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/appradar.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">App Radar</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AISDLC_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AISDLC.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI SDLC</p>
+                      </div>
+  
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AIunderwriting_active.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AIunderwriting.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI Under Writing</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/simulator_active.webp"
+                              alt="simulator_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/simulator.webp"
+                              alt="simulator_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Simulator</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/sandbox_active.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/sandbox.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Sand Box</p>
+                      </div>
+                    </div>
+                    <div class="solutionPatnersPart" id="solutionSidebar">
+                      <div class="select solutionPatners" id="solutionPatners">
+                        <p class="options solutionPatnerOption">Cognext</p>
+                        <p class="options solutionPatnerOption">Giggso</p>
+                        <p class="options solutionPatnerOption">KYG Trade</p>
+                        <p class="options solutionPatnerOption">Modjoul</p>
+                        <p class="options solutionPatnerOption">Antworks</p>
+                        <p class="options solutionPatnerOption">Sriya.AI</p>
+                        <p class="options solutionPatnerOption">Vee 24</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="viewPart">
+                    <div class="applicationShow">
+                      <button class="closeBtn" data-close-btn>
+                        <img
+                          src="./assets/images/Conceptvines Assets/close (2).webp"
+                          alt="close"
+                        />
+                        <span>close</span>
+                      </button>
+                      <div class="iconPart">
+                        <div
+                          class="tabBodyContent tabBodyActive"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/app radar.webp"
+                            alt=""
+                          />
+                          <p>App Radar</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/AISDLC.webp"
+                            alt=""
+                          />
+                          <p>AISDLC</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/aI under writing.webp"
+                            alt=""
+                          />
+                          <p>AI Under Writing</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/simulator.webp"
+                            alt=""
+                          />
+                          <p>simulator</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/sand box.webp"
+                            alt=""
+                          />
+                          <p>sandbox</p>
+                        </div>
+                      </div>
+                      <div class="pinPopup d-flex justify-between align-center">
+                        <div class="zoomSection d-flex align-center">
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/expand.webp"
+                              alt="expand"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <span class="zoomPersentage">100%</span>
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/add.webp"
+                              alt="add"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/minus.webp"
+                              alt="minus"
+                            />
+                          </div>
+                        </div>
+                        <div class="pinDownloadSection d-flex align-center">
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/pin.webp"
+                              alt="pin"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/edit.webp"
+                              alt="edit"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/download.webp"
+                              alt="download"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="solutionPatnersShow">
+                      <div class="Information">
+                        <h1 class="changeTitle">Transactional Banking</h1>
+                        <div class="image image-container">
+                          <div class="container">
+                            <img
+                              class="zoom-image"
+                              src="./assets/images/Conceptvines Assets/image.webp"
+                              alt="Zoomable Image"
+                            />
+                          </div>
+                        </div>
+  
+                        <div class="pinPopup d-flex justify-between align-center">
+                          <div class="zoomSection d-flex align-center">
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/expand.webp"
+                                alt="expand"
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <span class="zoomPersentage" data-zoomPersentage
+                                >100%</span
+                              >
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/add.webp"
+                                alt="add"
+                                id="zoomin"
+                                data-zoom-in
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/minus.webp"
+                                alt="minus"
+                                id="zoomout"
+                                data-zoom-out
+                              />
+                            </div>
+                          </div>
+                          <div class="pinDownloadSection d-flex align-center">
+                            <div
+                              class="pinIcon"
+                              id="addPinBtn"
+                              data-addPinBtn
+                              pin-section-name="Transactional"
+                            >
+                              <img
+                                src="./assets/images/Conceptvines Assets/pin.webp"
+                                alt="pin"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/edit.webp"
+                                alt="edit"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/download.webp"
+                                alt="download"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Solution -->
+            <!-- Datasets -->
+            <div id="datasets" style="display: none;" class="contentToggle">
               <div class="dropDownAndInformation">
                 <div class="dropDownAccordian">
                   <div class="accordion-item">
@@ -417,14 +754,11 @@
                           alt="patnerarrow"
                           class="patnerarrow"
                       /></span>
-                      <span class="partnerAccName">Use Cases</span>
+                      <span class="partnerAccName" id="insurance">Insurance</span>
                     </p>
                     <div class="accordion">
-                      <ul>
-                        <li><span class="use">Use</span> Cases 1</li>
-                        <li><span class="use">Use</span> Cases 2</li>
-                        <li><span class="use">Use</span> Cases 3</li>
-                        <li><span class="use">Use</span> Cases 4</li>
+                      <ul id="insurancetable">
+                        <!-- Use Cases will be populated here -->
                       </ul>
                     </div>
                   </div>
@@ -491,19 +825,78 @@
                     </div>
                   </div>
                 </div>
-                <div class="Information">
-                  <h1 class="changeTitle">Transactional Banking</h1>
-                  <div class="image image-container">
-                    <div class="container">
-                      <img
-                        class="zoom-image"
-                        src="./assets/images/Conceptvines Assets/image.webp"
-                        alt="Zoomable Image"
-                      />
+                <div class="Information1">
+                  <iframe style="display: none; border:none" id="er" height="100%"></iframe>
+                  <a id="insuranceER">link to view the Insurance ER diagram </a>
+                    <div id="table" style="display: none;">
+                      <h2>Database Table Schema</h2>
+                      <a href="http://127.0.0.1:5050/" target="_blank">test</a>
+                          <table id="schemaTable">
+                            <thead>
+                              <tr><th>Field Name</th><th>Type</th></tr>
+                            </thead>
+                            <tbody>
+                            <!-- Table rows will be added here dynamically -->
+                            </tbody>
+                          </table>
+                    </div>
+                  <div class="pinPopup d-flex justify-between align-center">
+                    <div class="zoomSection d-flex align-center">
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/expand.webp"
+                          alt="expand"
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <span class="zoomPersentage" data-zoomPersentage
+                          >100%</span
+                        >
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/add.webp"
+                          alt="add"
+                          id="zoomin"
+                          data-zoom-in
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/minus.webp"
+                          alt="minus"
+                          id="zoomout"
+                          data-zoom-out
+                        />
+                      </div>
+                    </div>
+                    <div class="pinDownloadSection d-flex align-center">
+                      <div
+                        class="pinIcon"
+                        id="addPinBtn"
+                        data-addPinBtn
+                        pin-section-name="Transactional"
+                      >
+                        <img
+                          src="./assets/images/Conceptvines Assets/pin.webp"
+                          alt="pin"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/edit.webp"
+                          alt="edit"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/download.webp"
+                          alt="download"
+                        />
+                      </div>
                     </div>
                   </div>
-  
-                  <div class="pinPopup d-flex justify-between align-center">
+                  <!-- <div class="pinPopup d-flex justify-between align-center">
                     <div class="zoomSection d-flex align-center">
                       <div class="zoomIcon">
                         <img
@@ -553,60 +946,289 @@
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="iconViewPart">
+                  <div class="sideMenuPart">
+                    <div class="topCvIcons d-flex" id="applicationSidebar">
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon iconActive" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/appradar_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/appradar.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">App Radar</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AISDLC_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AISDLC.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI SDLC</p>
+                      </div>
+  
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AIunderwriting_active.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AIunderwriting.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI Under Writing</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/simulator_active.webp"
+                              alt="simulator_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/simulator.webp"
+                              alt="simulator_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Simulator</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/sandbox_active.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/sandbox.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Sand Box</p>
+                      </div>
+                    </div>
+                    <div class="solutionPatnersPart" id="solutionSidebar">
+                      <div class="select solutionPatners" id="solutionPatners">
+                        <p class="options solutionPatnerOption">Cognext</p>
+                        <p class="options solutionPatnerOption">Giggso</p>
+                        <p class="options solutionPatnerOption">KYG Trade</p>
+                        <p class="options solutionPatnerOption">Modjoul</p>
+                        <p class="options solutionPatnerOption">Antworks</p>
+                        <p class="options solutionPatnerOption">Sriya.AI</p>
+                        <p class="options solutionPatnerOption">Vee 24</p>
+                      </div>
+                    </div>
+                  </div>
                   <div class="viewPart">
-                    <button class="closeBtn" onclick="handleMain('AISDLC')">
-                      <img
-                        src="./assets/images/Conceptvines Assets/close (2).webp"
-                        alt="close"
-                      />
-                      <span>close</span>
-                    </button>
-                    <div class="iconPart"></div>
-                    <div class="pinPopup d-flex justify-between align-center">
-                      <div class="zoomSection d-flex align-center">
-                        <div class="zoomIcon">
+                    <div class="applicationShow">
+                      <button class="closeBtn" data-close-btn>
+                        <img
+                          src="./assets/images/Conceptvines Assets/close (2).webp"
+                          alt="close"
+                        />
+                        <span>close</span>
+                      </button>
+                      <div class="iconPart">
+                        <div
+                          class="tabBodyContent tabBodyActive"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/expand.webp"
-                            alt="expand"
+                            src="./assets/images/Conceptvines Assets/app radar.webp"
+                            alt=""
                           />
+                          <p>App Radar</p>
                         </div>
-                        <div class="zoomIcon">
-                          <span class="zoomPersentage">98%</span>
-                        </div>
-                        <div class="zoomIcon">
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/add.webp"
-                            alt="add"
+                            src="./assets/images/Conceptvines Assets/AISDLC.webp"
+                            alt=""
                           />
+                          <p>AISDLC</p>
                         </div>
-                        <div class="zoomIcon">
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/minus.webp"
-                            alt="minus"
+                            src="./assets/images/Conceptvines Assets/aI under writing.webp"
+                            alt=""
                           />
+                          <p>AI Under Writing</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/simulator.webp"
+                            alt=""
+                          />
+                          <p>simulator</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/sand box.webp"
+                            alt=""
+                          />
+                          <p>sandbox</p>
                         </div>
                       </div>
-                      <div class="pinDownloadSection d-flex align-center">
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/pin.webp"
-                            alt="pin"
-                          />
+                      <div class="pinPopup d-flex justify-between align-center">
+                        <div class="zoomSection d-flex align-center">
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/expand.webp"
+                              alt="expand"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <span class="zoomPersentage">100%</span>
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/add.webp"
+                              alt="add"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/minus.webp"
+                              alt="minus"
+                            />
+                          </div>
                         </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/edit.webp"
-                            alt="edit"
-                          />
+                        <div class="pinDownloadSection d-flex align-center">
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/pin.webp"
+                              alt="pin"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/edit.webp"
+                              alt="edit"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/download.webp"
+                              alt="download"
+                            />
+                          </div>
                         </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/download.webp"
-                            alt="download"
-                          />
+                      </div>
+                    </div>
+                    <div class="solutionPatnersShow">
+                      <div class="Information">
+                        <h1 class="changeTitle">Transactional Banking</h1>
+                        <div class="image image-container">
+                          <div class="container">
+                            <img
+                              class="zoom-image"
+                              src="./assets/images/Conceptvines Assets/image.webp"
+                              alt="Zoomable Image"
+                            />
+                          </div>
+                        </div>
+  
+                        <div class="pinPopup d-flex justify-between align-center">
+                          <div class="zoomSection d-flex align-center">
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/expand.webp"
+                                alt="expand"
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <span class="zoomPersentage" data-zoomPersentage
+                                >100%</span
+                              >
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/add.webp"
+                                alt="add"
+                                id="zoomin"
+                                data-zoom-in
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/minus.webp"
+                                alt="minus"
+                                id="zoomout"
+                                data-zoom-out
+                              />
+                            </div>
+                          </div>
+                          <div class="pinDownloadSection d-flex align-center">
+                            <div
+                              class="pinIcon"
+                              id="addPinBtn"
+                              data-addPinBtn
+                              pin-section-name="Transactional"
+                            >
+                              <img
+                                src="./assets/images/Conceptvines Assets/pin.webp"
+                                alt="pin"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/edit.webp"
+                                alt="edit"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/download.webp"
+                                alt="download"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -614,8 +1236,8 @@
                 </div>
               </div>
             </div>
-            <!-- End of main -->
-            <!-- models -->
+            <!-- End of Datasets -->
+            <!-- Models -->
             <div id="models" style="display: none;" class="contentToggle">
               <div class="dropDownAndInformation">
                 <div class="dropDownAccordian">
@@ -636,6 +1258,8 @@
                     </div>
                   </div>
   
+                  
+  
                   <div class="accordion-item">
                     <p class="accordion-button">
                       <span
@@ -676,19 +1300,70 @@
                     </div>
                   </div>
                 </div>
-                <div class="Information">
+                <div class="Information1">
                   <div>
                     <a id="webpage" target="_blank">open webpage</a>
                     <a id="editor" target="_blank">open editor</a>
                   </div>
                 
                   <iframe id="aiiframe" height="100%" style="border:none"></iframe>
-                  <div class="context">
-                      loading...
-                      
-                  </div>                  
-  
                   <div class="pinPopup d-flex justify-between align-center">
+                    <div class="zoomSection d-flex align-center">
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/expand.webp"
+                          alt="expand"
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <span class="zoomPersentage" data-zoomPersentage
+                          >100%</span
+                        >
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/add.webp"
+                          alt="add"
+                          id="zoomin"
+                          data-zoom-in
+                        />
+                      </div>
+                      <div class="zoomIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/minus.webp"
+                          alt="minus"
+                          id="zoomout"
+                          data-zoom-out
+                        />
+                      </div>
+                    </div>
+                    <div class="pinDownloadSection d-flex align-center">
+                      <div
+                        class="pinIcon"
+                        id="addPinBtn"
+                        data-addPinBtn
+                        pin-section-name="Transactional"
+                      >
+                        <img
+                          src="./assets/images/Conceptvines Assets/pin.webp"
+                          alt="pin"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/edit.webp"
+                          alt="edit"
+                        />
+                      </div>
+                      <div class="pinIcon">
+                        <img
+                          src="./assets/images/Conceptvines Assets/download.webp"
+                          alt="download"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="pinPopup d-flex justify-between align-center">
                     <div class="zoomSection d-flex align-center">
                       <div class="zoomIcon">
                         <img
@@ -737,422 +1412,290 @@
                           alt="download"
                         />
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="iconViewPart">
-                  <div class="viewPart">
-                    <button class="closeBtn" onclick="handleMain('AISDLC')">
-                      <img
-                        src="./assets/images/Conceptvines Assets/close (2).webp"
-                        alt="close"
-                      />
-                      <span>close</span>
-                    </button>
-                    <div class="iconPart"></div>
-                    <div class="pinPopup d-flex justify-between align-center">
-                      <div class="zoomSection d-flex align-center">
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/expand.webp"
-                            alt="expand"
-                          />
-                        </div>
-                        <div class="zoomIcon">
-                          <span class="zoomPersentage">98%</span>
-                        </div>
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/add.webp"
-                            alt="add"
-                          />
-                        </div>
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/minus.webp"
-                            alt="minus"
-                          />
-                        </div>
-                      </div>
-                      <div class="pinDownloadSection d-flex align-center">
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/pin.webp"
-                            alt="pin"
-                          />
-                        </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/edit.webp"
-                            alt="edit"
-                          />
-                        </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/download.webp"
-                            alt="download"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of models -->
-            <!-- datasets -->
-            <div id="datasets" style="display: none;" class="contentToggle">
-              <div class="dropDownAndInformation">
-                <div class="dropDownAccordian">
-                  <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName" id="insurance">Insurance</span>
-                    </p>
-                    <div class="accordion">
-                      <ul id="insurancetable">
-                        <!-- Use Cases will be populated here -->
-                      </ul>
-                    </div>
-                  </div>
-  
-                  <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName">Features</span>
-                    </p>
-                    <div class="accordion">
-                      <ul>
-                        <li><span class="features">Features</span> 1</li>
-                        <li><span class="features">Features</span> 2</li>
-                        <li><span class="features">Features</span> 3</li>
-                        <li><span class="features">Features</span> 4</li>
-                      </ul>
-                    </div>
-                  </div>
-  
-                  <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName">Models</span>
-                    </p>
-                    <div class="accordion">
-                      <ul>
-                        <li><span class="models">Models</span> 1</li>
-                        <li><span class="models">Models</span> 2</li>
-                        <li><span class="models">Models</span> 3</li>
-                        <li><span class="models">Models</span> 4</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="Information">
-                  <iframe style="display: none; border:none" id="er" height="100%"></iframe>
-                  <a id="insuranceER">link to view the Insurance ER diagram </a>
-                    <div id="table" style="display: none;">
-                      <h2>Database Table Schema</h2>
-                      <a href="http://127.0.0.1:5050/" target="_blank">test</a>
-                          <table id="schemaTable">
-                            <thead>
-                              <tr><th>Field Name</th><th>Type</th></tr>
-                            </thead>
-                            <tbody>
-                            <!-- Table rows will be added here dynamically -->
-                            </tbody>
-                          </table>
-                    </div>
-  
-                  <div class="pinPopup d-flex justify-between align-center">
-                    <div class="zoomSection d-flex align-center">
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/expand.webp"
-                          alt="expand"
-                        />
-                      </div>
-                      <div class="zoomIcon">
-                        <span class="zoomPersentage">100%</span>
-                      </div>
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/add.webp"
-                          alt="add"
-                          id="zoomin"
-                        />
-                      </div>
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/minus.webp"
-                          alt="minus"
-                          id="zoomout"
-                        />
-                      </div>
-                    </div>
-                    <div class="pinDownloadSection d-flex align-center">
-                      <div
-                        class="pinIcon"
-                        id="addPinBtn"
-                        pin-section-name="Transactional"
-                      >
-                        <img
-                          src="./assets/images/Conceptvines Assets/pin.webp"
-                          alt="pin"
-                        />
-                      </div>
-                      <div class="pinIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/edit.webp"
-                          alt="edit"
-                        />
-                      </div>
-                      <div class="pinIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/download.webp"
-                          alt="download"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="iconViewPart">
-                  <div class="viewPart">
-                    <button class="closeBtn" onclick="handleMain('AISDLC')">
-                      <img
-                        src="./assets/images/Conceptvines Assets/close (2).webp"
-                        alt="close"
-                      />
-                      <span>close</span>
-                    </button>
-                    <div class="iconPart"></div>
-                    <div class="pinPopup d-flex justify-between align-center">
-                      <div class="zoomSection d-flex align-center">
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/expand.webp"
-                            alt="expand"
-                          />
-                        </div>
-                        <div class="zoomIcon">
-                          <span class="zoomPersentage">98%</span>
-                        </div>
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/add.webp"
-                            alt="add"
-                          />
-                        </div>
-                        <div class="zoomIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/minus.webp"
-                            alt="minus"
-                          />
-                        </div>
-                      </div>
-                      <div class="pinDownloadSection d-flex align-center">
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/pin.webp"
-                            alt="pin"
-                          />
-                        </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/edit.webp"
-                            alt="edit"
-                          />
-                        </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/download.webp"
-                            alt="download"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of datasets -->
-            <!-- solutions -->
-            <div id="solutions" style="display: none;" class="contentToggle">
-              <div class="dropDownAndInformation">
-                <div class="dropDownAccordian">
-                  <!-- <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName" id="insurance">Insurance</span>
-                    </p>
-                    <div class="accordion">
-                      <ul id="insurancetable">
-                        
-                      </ul>
                     </div>
                   </div> -->
-  
-                  <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName" id="usecases1">Usecases</span>
-                    </p>
-                    <div class="accordion">
-                      <ul id="useCasesList1">
-                      </ul>
-                    </div>
-                  </div>
-  
-                  <div class="accordion-item">
-                    <p class="accordion-button">
-                      <span
-                        ><img
-                          src="./assets/images/Conceptvines Assets/patnerarrow.webp"
-                          alt="patnerarrow"
-                          class="patnerarrow"
-                      /></span>
-                      <span class="partnerAccName">Models</span>
-                    </p>
-                    <div class="accordion">
-                      <ul>
-                        <li><span class="models">Models</span> 1</li>
-                        <li><span class="models">Models</span> 2</li>
-                        <li><span class="models">Models</span> 3</li>
-                        <li><span class="models">Models</span> 4</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="Information">
-                  <a id="visit" target="_blank">visit</a>
-                  <iframe id="iframe" height="100%" style="border:none"></iframe>
-                  <div class="pinPopup d-flex justify-between align-center">
-                    <div class="zoomSection d-flex align-center">
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/expand.webp"
-                          alt="expand"
-                        />
-                      </div>
-                      <div class="zoomIcon">
-                        <span class="zoomPersentage">100%</span>
-                      </div>
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/add.webp"
-                          alt="add"
-                          id="zoomin"
-                        />
-                      </div>
-                      <div class="zoomIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/minus.webp"
-                          alt="minus"
-                          id="zoomout"
-                        />
-                      </div>
-                    </div>
-                    <div class="pinDownloadSection d-flex align-center">
-                      <div
-                        class="pinIcon"
-                        id="addPinBtn"
-                        pin-section-name="Transactional"
-                      >
-                        <img
-                          src="./assets/images/Conceptvines Assets/pin.webp"
-                          alt="pin"
-                        />
-                      </div>
-                      <div class="pinIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/edit.webp"
-                          alt="edit"
-                        />
-                      </div>
-                      <div class="pinIcon">
-                        <img
-                          src="./assets/images/Conceptvines Assets/download.webp"
-                          alt="download"
-                        />
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="iconViewPart">
+                  <div class="sideMenuPart">
+                    <div class="topCvIcons d-flex" id="applicationSidebar">
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon iconActive" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/appradar_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/appradar.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">App Radar</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AISDLC_active.webp"
+                              alt="AISDLC_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AISDLC.webp"
+                              alt="appradar_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI SDLC</p>
+                      </div>
+  
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/AIunderwriting_active.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/AIunderwriting.webp"
+                              alt="AIunderwriting_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">AI Under Writing</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/simulator_active.webp"
+                              alt="simulator_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/simulator.webp"
+                              alt="simulator_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Simulator</p>
+                      </div>
+                      <div class="topCvIcon d-flex flex-col align-center">
+                        <div class="outerDiv">
+                          <div class="icon" data-application-tabHead>
+                            <img
+                              src="./assets/images/Conceptvines Assets/sandbox_active.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon"
+                            />
+                            <img
+                              src="./assets/images/Conceptvines Assets/1/sandbox.webp"
+                              alt="sandbox_deactive"
+                              class="topIcon2"
+                            />
+                          </div>
+                        </div>
+                        <p class="iconTxt">Sand Box</p>
+                      </div>
+                    </div>
+                    <div class="solutionPatnersPart" id="solutionSidebar">
+                      <div class="select solutionPatners" id="solutionPatners">
+                        <p class="options solutionPatnerOption">Cognext</p>
+                        <p class="options solutionPatnerOption">Giggso</p>
+                        <p class="options solutionPatnerOption">KYG Trade</p>
+                        <p class="options solutionPatnerOption">Modjoul</p>
+                        <p class="options solutionPatnerOption">Antworks</p>
+                        <p class="options solutionPatnerOption">Sriya.AI</p>
+                        <p class="options solutionPatnerOption">Vee 24</p>
+                      </div>
+                    </div>
+                  </div>
                   <div class="viewPart">
-                    <button class="closeBtn" onclick="handleMain('AISDLC')">
-                      <img
-                        src="./assets/images/Conceptvines Assets/close (2).webp"
-                        alt="close"
-                      />
-                      <span>close</span>
-                    </button>
-                    <div class="iconPart"></div>
-                    <div class="pinPopup d-flex justify-between align-center">
-                      <div class="zoomSection d-flex align-center">
-                        <div class="zoomIcon">
+                    <div class="applicationShow">
+                      <button class="closeBtn" data-close-btn>
+                        <img
+                          src="./assets/images/Conceptvines Assets/close (2).webp"
+                          alt="close"
+                        />
+                        <span>close</span>
+                      </button>
+                      <div class="iconPart">
+                        <div
+                          class="tabBodyContent tabBodyActive"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/expand.webp"
-                            alt="expand"
+                            src="./assets/images/Conceptvines Assets/app radar.webp"
+                            alt=""
                           />
+                          <p>App Radar</p>
                         </div>
-                        <div class="zoomIcon">
-                          <span class="zoomPersentage">98%</span>
-                        </div>
-                        <div class="zoomIcon">
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/add.webp"
-                            alt="add"
+                            src="./assets/images/Conceptvines Assets/AISDLC.webp"
+                            alt=""
                           />
+                          <p>AISDLC</p>
                         </div>
-                        <div class="zoomIcon">
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
                           <img
-                            src="./assets/images/Conceptvines Assets/minus.webp"
-                            alt="minus"
+                            src="./assets/images/Conceptvines Assets/aI under writing.webp"
+                            alt=""
                           />
+                          <p>AI Under Writing</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/simulator.webp"
+                            alt=""
+                          />
+                          <p>simulator</p>
+                        </div>
+                        <div
+                          class="tabBodyContent"
+                          class="d-none"
+                          data-application-tabBody
+                        >
+                          <img
+                            src="./assets/images/Conceptvines Assets/sand box.webp"
+                            alt=""
+                          />
+                          <p>sandbox</p>
                         </div>
                       </div>
-                      <div class="pinDownloadSection d-flex align-center">
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/pin.webp"
-                            alt="pin"
-                          />
+                      <div class="pinPopup d-flex justify-between align-center">
+                        <div class="zoomSection d-flex align-center">
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/expand.webp"
+                              alt="expand"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <span class="zoomPersentage">100%</span>
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/add.webp"
+                              alt="add"
+                            />
+                          </div>
+                          <div class="zoomIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/minus.webp"
+                              alt="minus"
+                            />
+                          </div>
                         </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/edit.webp"
-                            alt="edit"
-                          />
+                        <div class="pinDownloadSection d-flex align-center">
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/pin.webp"
+                              alt="pin"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/edit.webp"
+                              alt="edit"
+                            />
+                          </div>
+                          <div class="pinIcon">
+                            <img
+                              src="./assets/images/Conceptvines Assets/download.webp"
+                              alt="download"
+                            />
+                          </div>
                         </div>
-                        <div class="pinIcon">
-                          <img
-                            src="./assets/images/Conceptvines Assets/download.webp"
-                            alt="download"
-                          />
+                      </div>
+                    </div>
+                    <div class="solutionPatnersShow">
+                      <div class="Information">
+                        <h1 class="changeTitle">Transactional Banking</h1>
+                        <div class="image image-container">
+                          <div class="container">
+                            <img
+                              class="zoom-image"
+                              src="./assets/images/Conceptvines Assets/image.webp"
+                              alt="Zoomable Image"
+                            />
+                          </div>
+                        </div>
+  
+                        <div class="pinPopup d-flex justify-between align-center">
+                          <div class="zoomSection d-flex align-center">
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/expand.webp"
+                                alt="expand"
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <span class="zoomPersentage" data-zoomPersentage
+                                >100%</span
+                              >
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/add.webp"
+                                alt="add"
+                                id="zoomin"
+                                data-zoom-in
+                              />
+                            </div>
+                            <div class="zoomIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/minus.webp"
+                                alt="minus"
+                                id="zoomout"
+                                data-zoom-out
+                              />
+                            </div>
+                          </div>
+                          <div class="pinDownloadSection d-flex align-center">
+                            <div
+                              class="pinIcon"
+                              id="addPinBtn"
+                              data-addPinBtn
+                              pin-section-name="Transactional"
+                            >
+                              <img
+                                src="./assets/images/Conceptvines Assets/pin.webp"
+                                alt="pin"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/edit.webp"
+                                alt="edit"
+                              />
+                            </div>
+                            <div class="pinIcon">
+                              <img
+                                src="./assets/images/Conceptvines Assets/download.webp"
+                                alt="download"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1160,7 +1703,13 @@
                 </div>
               </div>
             </div>
-            <!-- end of solutions -->
+            <!-- End of models -->
+            <!-- Models -->
+            <div id="" style="display: none;" class="contentToggle">
+
+            </div>
+            <!-- End of models -->
+
 
 
 
