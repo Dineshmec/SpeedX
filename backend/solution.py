@@ -2,8 +2,8 @@ from flask import Flask, jsonify
 import mysql.connector
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app)
+solution_src = Flask(__name__)
+CORS(solution_src)
 db_config = {
     'host': '0.0.0.0',
     'user': 'root',
@@ -12,7 +12,7 @@ db_config = {
 }
 
 
-@app.route('/get_use_cases1', methods=['GET'])
+@solution_src.route('/get_use_cases1', methods=['GET'])
 def get_use_cases1():
     try:
         conn = mysql.connector.connect(**db_config)
@@ -27,6 +27,6 @@ def get_use_cases1():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=5005)
+    solution_src.run(host='0.0.0.0',debug=True,port=5005)
 
 

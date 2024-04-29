@@ -9,8 +9,8 @@ from email.mime.text import MIMEText
 
 
 
-app = Flask(__name__)
-CORS(app)
+app_src = Flask(__name__)
+CORS(app_src)
 
 
 # MySQL configurations
@@ -53,7 +53,7 @@ def send_otp(email, otp):
         print("Error sending email:", str(e))
         return False
  
-@app.route('/send_otp', methods=['POST'])
+@app_src.route('/send_otp', methods=['POST'])
 def send_otp_route():
     cursor = db.cursor()
     email = request.json.get('email')
@@ -68,7 +68,7 @@ def send_otp_route():
     else:
         return jsonify({'error': 'Failed to send OTP'}), 500
 
-@app.route('/login', methods=['POST'])
+@app_src.route('/login', methods=['POST'])
 def login():
     cursor = db.cursor(dictionary=True)  # Ensure dictionary=True for fetching results as dictionaries
 
@@ -94,7 +94,7 @@ def login():
     return jsonify({'message': 'Login successful'}), 200
 
 # Endpoint for updating password
-@app.route('/update_password', methods=['POST'])
+@app_src.route('/update_password', methods=['POST'])
 def update_password():
     cursor = db.cursor()
 
@@ -110,7 +110,7 @@ def update_password():
 
     return jsonify({'message': 'Password updated successfully'}), 200
 
-@app.route('/check_email', methods=['POST'])
+@app_src.route('/check_email', methods=['POST'])
 def check_email():
     data = request.get_json()  # Get data as JSON
     email = data.get('email')
@@ -133,7 +133,7 @@ def check_email():
 
 
 # Endpoint for adding a new user
-@app.route('/add_user', methods=['POST'])
+@app_src.route('/add_user', methods=['POST'])
 def add_user():
     cursor = db.cursor()
     email = request.json.get('email')
@@ -155,7 +155,7 @@ def add_user():
 
 
 # API endpoint to validate OTP
-@app.route('/validate_otp', methods=['POST'])
+@app_src.route('/validate_otp', methods=['POST'])
 def validate_otp():
     data = request.json
     otp = data.get('otp')
@@ -190,4 +190,4 @@ def validate_otp():
     
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=5505)
+    app_src.run(host='0.0.0.0',debug=True,port=5505)

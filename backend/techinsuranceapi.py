@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from flask_restx import Api, Resource, fields
 import mysql.connector
 
-app = Flask(__name__)
-api = Api(app, version='1.0', title='Insurance APIs', description='API for managing insurance data')
+technical_src = Flask(__name__)
+api = Api(technical_src, version='1.0', title='Insurance APIs', description='API for managing insurance data')
 
 # Database Configuration
 db_config = {
@@ -858,4 +858,4 @@ class AddressResourceInsert(Resource):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=5050)
+    technical_src.run(host='0.0.0.0',debug=True,port=5050)

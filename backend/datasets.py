@@ -3,8 +3,8 @@ import mysql.connector
 from flask_cors import CORS
 from mysql.connector import Error
 
-app = Flask(__name__)
-CORS(app)
+datasets_src = Flask(__name__)
+CORS(datasets_src)
 
 def get_database_tables(db_name):
     connection = None
@@ -58,12 +58,12 @@ def get_table_schema(db_name, table_name):
             print("MySQL connection is closed")
     return []
 
-@app.route('/schema/<db_name>', methods=['GET'])
+@datasets_src.route('/schema/<db_name>', methods=['GET'])
 def tables(db_name):
     tables = get_database_tables(db_name)
     return jsonify(tables)
 
-@app.route('/schema/<db_name>/<table_name>', methods=['GET'])
+@datasets_src.route('/schema/<db_name>/<table_name>', methods=['GET'])
 def table_schema(db_name, table_name):
     print(table_name)
     schema = get_table_schema(db_name, table_name)
@@ -72,4 +72,4 @@ def table_schema(db_name, table_name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    datasets_src.run(host='0.0.0.0',debug=True)
