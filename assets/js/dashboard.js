@@ -549,6 +549,21 @@ function toggleContent(id) {
             elements[i].style.display = "none";
         }
     }
+
+    var activeMenus = document.getElementsByClassName("activeMenu");
+        activeMenus[0].classList.replace("activeMenu","menuInfo");
+
+    var menuIcons = document.getElementsByClassName("menuIcon activeMenuIcon");
+        menuIcons[0].classList.add("menuIcon");
+
+
+    var element = document.getElementById(`${id}Light1`);
+    console.log(`${id}Light1`);
+    element.classList.add("activeMenuIcon");
+    
+    var element1 = document.getElementById(`${id}Light2`);
+    element1.classList.replace("menuInfo", "activeMenu");
+
 }
 
 function toggleContentAndIcon(section) {

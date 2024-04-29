@@ -16,7 +16,7 @@
     <div class="contentPart">
       <div class="headingPart">
         <h2>Make Your Own!</h2>
-        <p>Join open intelligence platform</p>
+        <p>Join SpeedX</p>
       </div>
       <div class="signUpformPart">
         <form id="signUpForm">
@@ -200,7 +200,7 @@
           signUpUsername_value &&
           signUpPasswordInput_value
         ) {
-          return fetch('http://127.0.0.1:5505/check_email', {
+          return fetch(`${LOCALHOST}:${APP_PORT}/check_email`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -214,7 +214,7 @@
     } else {
       // If email check fails, proceed to send OTP
       console.error('Failed to check email existence. Proceeding to send OTP.');
-      return fetch('http://127.0.0.1:5505/send_otp', {
+      return fetch(`${LOCALHOST}:${APP_PORT}/send_otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -297,7 +297,7 @@
             var password = signUpPasswordInput.value.trim();
 
             // Make API call to validate OTP
-            fetch('http://127.0.0.1:5505/validate_otp', {
+            fetch(`${LOCALHOST}:${APP_PORT}/validate_otp`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -334,7 +334,7 @@
       });
 
       function checkEmailExists(email) {
-  return fetch('http://127.0.0.1:5505/check_email', {
+  return fetch(`${LOCALHOST}:${APP_PORT}/check_email`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

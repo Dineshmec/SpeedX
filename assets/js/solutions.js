@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
     const useCasesLabel = document.getElementById('usecases1');
     if (useCasesLabel) {
         useCasesLabel.addEventListener('click', function () {

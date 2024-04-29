@@ -7,26 +7,17 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from celery import Celery
 
 
 app = Flask(__name__)
-CORS(app,origins='http://127.0.0.1:5500')
-
-# Celery configuration updated to new format
-app.config['broker_url'] = 'redis://localhost:6379/0'
-app.config['result_backend'] = 'redis://localhost:6379/0'
-
-# Initialize Celery
-celery = Celery(app.name, broker=app.config['broker_url'])
-celery.conf.update(app.config)
+CORS(app)
 
 
 # MySQL configurations
 db = mysql.connector.connect(
-    host='localhost',
+    host='0.0.0.0',
     user='root',
-    password='root',
+    password='ConceptVine$@SX#21',
     database='test_db'
 )
 
@@ -199,4 +190,4 @@ def validate_otp():
     
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5505)
+    app.run(host='0.0.0.0',debug=True,port=5505)

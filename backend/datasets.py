@@ -4,17 +4,17 @@ from flask_cors import CORS
 from mysql.connector import Error
 
 app = Flask(__name__)
-CORS(app, origins='http://127.0.0.1:5500')
+CORS(app)
 
 def get_database_tables(db_name):
     connection = None
     cursor = None
     try:
         connection = mysql.connector.connect(
-            host='127.0.0.1',
+            host='0.0.0.0',
             port=3306,
             user='root',
-            password='root',
+            password='ConceptVine$@SX#21',
             database=db_name
         )
         if connection.is_connected():
@@ -37,7 +37,7 @@ def get_table_schema(db_name, table_name):
     cursor = None
     try:
         connection = mysql.connector.connect(
-            host='127.0.0.1',
+            host='0.0.0.0',
             port=3306,
             user='root',
             password='root',
@@ -72,4 +72,4 @@ def table_schema(db_name, table_name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)

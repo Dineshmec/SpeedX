@@ -1,5 +1,5 @@
 var Appconfig ={
-     LOCALHOST:'http://127.0.0.1',
+     LOCALHOST:'http://172.31.122.215',
      APP_PORT:5505,
      INSURANCE_PORT:5000,
      WEB_RUN_PORT:5500,

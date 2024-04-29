@@ -3,11 +3,11 @@ import mysql.connector
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins='http://127.0.0.1:5500')
+CORS(app)
 db_config = {
-    'host': 'localhost',
+    'host': '0.0.0.0',
     'user': 'root',
-    'password': 'root',
+    'password': 'ConceptVine$@SX#21',
     'database': 'test_db'
 }
 
@@ -27,6 +27,6 @@ def get_use_cases1():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5005)
+    app.run(host='0.0.0.0',debug=True,port=5005)
 
 
